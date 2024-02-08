@@ -1,0 +1,143 @@
+/*  popup designs*/
+#jd-chat{
+	position:fixed;
+	bottom:0;
+	float:right;
+	right:0px;
+}
+
+#jd-chat .jd-user
+{	
+margin-right: 11px;
+width: 450px;
+display: inline-block;
+
+}
+#jd-chat .jd-online
+{	
+margin-right: 46px;
+width: 271px;
+display: inline-block;
+}
+#jd-chat .jd-online .light
+{
+	font-weight:bold;
+	text-decoration:none;
+	color:red;
+	text-transform:none;
+	float:right;
+	display:none;
+}
+
+#jd-chat .jd-header .close-this
+{
+	float: right;
+margin-right: 11px;
+}
+.jd-online > .jd-header
+{
+padding: 5px;
+background: #00AFFE;
+color: white;
+overflow: hidden;
+cursor: pointer;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+font-weight:bold !important;
+}
+.jd-user > .jd-header
+{
+background: #bfbfbf;
+color: #000;
+overflow: hidden;
+cursor: pointer;
+font-weight: ;
+padding-top: 13px;
+padding-bottom: 13px;
+padding-left: 12px;
+text-transform: capitalize;
+}
+#jd-chat .jd-body .jd-online_user
+{
+	display:block;
+	padding:5px;		
+	cursor:pointer;
+	border-bottom:solid 1px gray;
+}
+#jd-chat .jd-body
+{
+    min-height: 250px;
+    background: #fff;
+    height: 200px;
+    overflow-y: scroll;
+    border-right: 1px solid #c3c3c3;
+    border-left: 1px solid #c3c3c3;
+
+}
+
+#jd-chat .jd-body  span.me
+{
+	display:block;
+	color:white;
+    width:100%;
+	text-align:right;
+	margin-top:2%;
+	font-size:18px;
+	padding-right:2%;
+	background:green;
+	padding-top:10px;
+	padding-bottom:10px;
+ }
+
+#jd-chat .jd-body span.other
+{
+	display:block;
+	color:black;
+	width:100%;
+	margin-top:2%;
+	font-size:18px;
+	padding-left:2%;
+	background:yellow;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+#jd-chat .jd-footer
+{
+	
+background: white;
+color: white;
+overflow: hidden;
+}
+
+#jd-chat .jd-footer input[type=text]
+{
+    padding: 5px;
+    float: left;
+    margin-right: 12px;
+    font-size: 13px;
+    border-top: 1px solid #c3c3c3;
+    border-bottom: 1px solid #c3c3c3;
+	border-right: 1px solid #c3c3c3;
+    border-left:1px solid #c3c3c3;
+	width: 88%;
+}
+
+#jd-chat .jd-footer input[type=button]
+{
+	padding: 5px;
+    width: 50px;
+    float: left;
+    margin-right: 12px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+#jd-chat .jd-footer input[type=image]
+{
+	width: 29px;
+    margin-top: 2px;
+}
+
+
+
+

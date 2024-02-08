@@ -1,0 +1,27 @@
+body{
+    background:#C7CB1C !important;
+}
+.login_bx .right-side{
+    background: transparent !important;
+}
+.login_bx .logo_login{
+    text-align: center !important;
+}
+.login_bx .form-control{
+    background: white !important;
+    border-radius: 44px !important;
+}
+.font-poppins{
+    font-family: 'Poppins', sans-serif !important;
+}
+input{
+    text-indent: 30px;
+    font-family: 'Poppins', sans-serif !important;
+}
+.login_bx .form_icon.email{
+    position: absolute;
+    right: 7px;
+}
+.login_bx .forgot_password{
+    text-align: right;
+}

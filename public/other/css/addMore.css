@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "Glyphicons Halflings";
+    src: url(../fonts/glyphicons-halflings-regular.eot);
+    src: url(../fonts/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"),  url(../fonts/glyphicons-halflings-regular.woff) format("woff"),
+    url(../fonts/glyphicons-halflings-regular.ttf) format("truetype"), url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+}
+.hide {
+    display: none!important;
+}
+.input-group-btn {
+    position: relative;
+    font-size: 0;
+    white-space: nowrap;
+}
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.glyphicon-remove-circle:before {
+    content: "\e088";
+}
+.glyphicon-floppy-remove:before {
+    content: "\e174";
+}
+.glyphicon-remove:before {
+    content: "\e014";
+}
+.glyphicon-remove-sign:before {
+    content: "\e083";
+}

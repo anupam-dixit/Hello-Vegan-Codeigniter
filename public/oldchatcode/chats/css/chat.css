@@ -1,0 +1,238 @@
+.creategroup{
+margin-right: 60px;
+height: 33px;
+background-color: #00AFFE;
+color: #fff;
+width: 147px;
+margin-bottom: 16px;
+padding-left: 22px;
+border-radius: 21px;
+padding-top: 2px;
+padding-bottom: 3px;
+font-weight: bold;
+cursor: pointer;
+margin-top: 10px;
+margin-left: 14px;
+}
+.create_group_btn{
+background-color: black;
+color: #fff;
+float: right;
+padding-left: 5px;
+padding-right: 5px;
+padding-top: 2px;
+padding-bottom: 6px;
+border-radius: 15px;
+width: 106px;
+text-transform: capitalize;
+font-weight: bold;
+border:1px solid #000;	
+}
+.creategroup a{
+	color:#fff;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+
+#chat_group_list{
+position:fixed;
+bottom:0;
+float:right;
+right:35px;	
+}
+.chat_group_main_div{
+margin-right: 46px;
+width: 271px;
+display: inline-block;	
+}
+.chat_group_list_header{
+padding: 5px;
+background: #00AFFE;
+color: white;
+overflow: hidden;
+cursor: pointer;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+font-weight:bold !important;
+}
+.chat_group_list_body{
+    min-height: 250px;
+    background: #fff;
+    height: 200px;
+    overflow-y: scroll;
+    border-right: 1px solid #c3c3c3;
+    border-left: 1px solid #c3c3c3;	
+}
+.chat_group_list_footer{
+background: white;
+color: white;
+overflow: hidden;	
+}
+
+.chat_group_name{
+	display:block;
+	padding:5px;		
+	cursor:pointer;
+	border-bottom:solid 1px gray;	
+}
+.chat_group_item{
+margin-right: 11px;
+width: 450px;
+display: inline-block;	
+}
+.chat_group_item_header{
+background: #bfbfbf;
+color: #000;
+overflow: hidden;
+cursor: pointer;
+font-weight: ;
+padding-top: 13px;
+padding-bottom: 13px;
+padding-left: 12px;
+text-transform: capitalize;	
+}
+.chat_group_item_close{
+float: right;
+margin-right: 11px;	
+}
+.chat_group_item_body{
+    min-height: 250px;
+    background: #fff;
+    height: 200px;
+    overflow-y: scroll;
+    border-right: 1px solid #c3c3c3;
+    border-left: 1px solid #c3c3c3;	
+}
+.chat_group_item_footer{
+background: white;
+color: white;
+overflow: hidden;	
+}
+.chat_group_item_footer input[type=text]
+{
+    padding: 5px;
+    float: left;
+    margin-right: 12px;
+    font-size: 13px;
+    border-top: 1px solid #c3c3c3;
+    border-bottom: 1px solid #c3c3c3;
+	border-right: 1px solid #c3c3c3;
+    border-left:1px solid #c3c3c3;
+	width: 88%;
+}
+.chat_group_item_footer input[type=button]
+{
+	padding: 5px;
+    width: 50px;
+    float: left;
+    margin-right: 12px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+.chat_group_item_footer input[type=image]
+{
+width: 29px;
+    margin-top: 2px;
+}
+.outgoing-chats{
+overflow:hidden;
+margin:26px 20px;	
+}
+.outgoing-chats-msg{
+float:left;
+width:46%;
+margin-left:45%;
+}
+.outgoing-chats-msg p{
+background:#00AFFE none repeat scroll 0 0;
+color:#fff;
+border-radius:10px;
+font-size:14px;
+margin:0;
+color:#fff;
+padding:5px 10px 5px 12px;
+width:100%;
+}
+.outgoing-chats-img{
+display:inline-block;
+width:30px;
+float:right;
+}
+.received-chats{
+margin:26px 20px;	
+}
+.received-chats-img{
+display:inline-block;
+width:30px;
+float:left;
+}
+.received-msg{
+display:inline-block;
+padding:0 0 0 10px;
+vertical-align:top;
+width:92%;	
+}
+.received-msg-inbox{
+width:57%;	
+}
+.received-msg-inbox p{
+background: #efefef none repeat scroll 0 0;
+border-radius:10px;
+color:#646464;
+font-size:14px;
+margin:0;
+padding:5px 10px 5px 12px;
+width:100%;
+}

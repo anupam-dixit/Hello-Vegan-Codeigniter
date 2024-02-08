@@ -1,0 +1,324 @@
+.event_bx .logo_login {
+	text-align: left;
+	position: relative;
+	z-index: 99;
+	padding: 0 0 0 41px;
+}
+.event_bx .logo_login img {
+	width: 180px;
+	text-align: left;
+	margin: auto;
+	position: relative;
+}
+.event_bx {
+	margin: 0px 0 0 0;
+}
+.event_bx .left-side {
+	padding: 70px 50px 100px;
+	background: #9100ff;
+	background-size: cover;
+	width: 100%;
+	float: left;
+	background: #11498f;
+	background: url("../images/login_leftbg.jpg") center;
+	width: 100%;
+	background-size: cover;
+}
+.event_bx .left-side::after {
+ content: "";
+ background-color:#141414;
+ border-radius: 0;
+ height: 100%;
+ width: 100%;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ opacity: 0.5;
+}
+.event_bx .text_login {
+	text-align: left;
+	position: relative;
+	z-index: 99;
+	padding:12% 0 0;
+}
+.event_bx .text_login h2 {
+	color: #fff;
+	font-size: 22px;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px 0;
+	margin: 0;
+	font: normal normal 600 40px/40px Open Sans;
+}
+.event_bx .text_login ul {
+	padding: 0 0;
+	margin: 0;
+}
+.event_bx .text_login ul li {
+	padding: 13px 0;
+	display: inline-block;
+	font: normal normal 16px/16px Open Sans;
+	margin: auto;
+	margin: 0;
+	color: #fff;
+	font-weight: bold;
+	line-height: 36px;
+	width: 100%;
+	text-align: center;
+}
+.event_bx .text_login ul li span {
+	padding: 0 10px 0 0;
+}
+.event_bx .text_login ul li span img {
+	width: 35px;
+	float: left;
+	border-radius: 50px;
+}
+.event_bx .login_social_icon {
+	margin-top: 20px;
+	position: relative;
+	z-index: 999;
+	text-align: center;
+}
+.event_bx .login_social_icon a {
+	color: #fff;
+	font-size: 16px;
+	margin-right: 15px;
+	border: 2px solid #fff;
+	padding:9px 50px;
+	border-radius: 50px;
+	text-decoration:none;
+	text-align: center;
+}
+.event_bx .login_social_icon a:hover {
+	border: 2px solid #70cac8;
+	background:#70cac8;
+}
+.event_bx .login_social_icon i {
+	height: 25px;
+	width: 25px;
+	text-align: center;
+	line-height: 26px;
+	border-radius: 5px;
+	color: #2a2928;
+}
+.event_bx .login_social_icon span {
+	color: #FFFFFF;
+	font-size: 16px;
+	text-align: left;
+	font-weight: bold;
+	padding: 5px 0 0 0;
+	display: inline-block;
+}
+.event_bx .right-side {
+	padding: 30px 100px 30px 0;
+	background: #FFF;
+	background-size: cover;
+	min-height: 514px;
+}
+.event_bx .right-side h2 {
+	text-align: left;
+	font: normal normal 900 30px/45px Open Sans;
+	letter-spacing: 0px;
+	color: #36444F;
+	padding: 32px 10px 4px 45px;
+}
+.event_bx::placeholder {
+ color: #36444F;
+ opacity: 1; /* Firefox */
+}
+ .event_bx:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: #36444F;
+}
+ .event_bx::-ms-input-placeholder { /* Microsoft Edge */
+ color: #36444F;
+}
+.event_bx .forgot_password {
+	width:100%;
+	float:left;
+}
+.event_bx .forgot_password a {
+	width: auto;
+	text-align: left;
+	color: #70cac8;
+	font-size: 15px;/* display: inline-block; *//* float: left; */
+}
+.event_bx .loginbutton {
+	color: #fff;
+	background-color: #70cac8;
+	border-color: #70cac8;
+	border-radius: 5px;
+	padding: 7px 7px 7px 22px;
+	margin-top: 40px;
+}
+.event_bx .loginbutton span {
+	background: #70cac8;
+	padding: 5px 10px;
+	margin: 0 0 0 12px;
+	border-radius: 5px;
+	font-size: 14px;
+}
+.event_bx .loginbutton span img {
+	width: 18px;
+}
+.event_bx .form_icon {
+	position: absolute;
+	right: 7px;
+	top: 15px;
+}
+.event_bx .form_icon img {
+	width:15px;
+}
+.event_bx .pwsicon img {
+	width: 20px;
+}
+.event_bx .form-group {
+	margin-bottom: 12rem;
+	position: relative;
+}
+.event_bx .right-side p {
+	font-weight:600;
+	color:#000;
+	padding:10px 70px 10px 50px;
+}
+.event_bx .form {
+	padding:10px 10px 10px 50px;
+}
+.event_bx .form-control-event {
+	display: block;
+	width: 100%;
+	height: 58px;
+	padding: 10px 15px;
+	background-clip: padding-box;
+	border: 1px solid #888889;
+	border-radius: 0.3rem;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	text-align: left;
+	font: normal normal medium 14px/17px Open Sans;
+	letter-spacing: 0px;
+	color: #484848;
+	border: 1px solid #888889;
+	border-radius: 5px;
+	font: normal normal normal 14px/17px Open Sans;
+}
+.event_bx .btn-deep-purple {
+	background: #84d14e;
+	border-radius: 18px;
+	padding: 5px 19px;
+	color: #FFF;
+	font-weight: 600;
+	float: right;
+	-webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.24);
+	-moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.24);
+	box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.24);
+}
+.event_bx .dontaccount {
+	width: 100%;
+	margin-top: 3%;
+	float: left;
+}
+.event_bx .dontaccount a {
+	width: auto;
+	text-align: left;
+	color: #70cac8;
+	font-size: 15px;/* display: inline-block; *//* float: left; */
+}
+.event_bx .alreadyaccount {
+	width: auto;
+	margin: 48px 0px 30px 9px;
+	float: left;
+	font-weight: bold;
+	color: #000;
+	font-size: 13px;
+}
+.event_bx .alreadyaccount a {
+	width: auto;
+	text-align: left;
+	color: #70cac8;
+	font-size: 15px;/* display: inline-block; *//* float: left; */
+}
+.event_bx .sign_up #tabs .form_icon {
+	position: absolute;
+	right: 7px;
+	top: 40px;
+}
+.event_bx .previousbutton {
+	color: #0f6fb5;
+	background-color: transparent;
+	border-color: #0f6fb5;
+	border-radius: 5px;
+	padding: 7px 17px;
+	margin-top: 40px;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .form-control-event {
+    transition: none;
+  }
+}
+
+.form-control-event::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+.form-control-event:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #495057;
+}
+
+.form-control-event:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-control-event::-webkit-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control-event::-moz-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control-event:-ms-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control-event::-ms-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control-event::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control-event:disabled, .form-control-event[readonly] {
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
+input[type="date"].form-control-event,
+input[type="time"].form-control-event,
+input[type="datetime-local"].form-control-event,
+input[type="month"].form-control-event {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select.form-control-event:focus::-ms-value {
+  color: #495057;
+  background-color: #fff;
+}
+

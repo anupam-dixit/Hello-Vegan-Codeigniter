@@ -1,0 +1,47 @@
+@import "color-palette.css";
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Tilt+Neon&display=swap');
+body{
+    font-family: 'Tilt Neon', sans-serif !important;
+}
+.bgcolor_profile{
+    margin-top:34px;
+}
+.btn-floating{
+    background: var(--secondary_medium)!important;
+}
+.sidenav{
+    background: var(--primary_medium)!important;
+}
+.sidenav a{
+    color: var(--secondary_dark)!important;
+}
+#mySidenav li{
+    border-bottom:1px solid var(--primary_dark) !important;
+}
+.menu_all{
+    background: var(--primary_medium)!important;
+}
+.menu_all ul li a{
+    color: var(--primary_dark) !important;
+}
+.menu_all ul li:hover a{
+    color: var(--secondary_light)!important;
+}
+.hadding_side{
+    background: var(--primary_dark) !important;
+    border-top-right-radius: 7px !important;
+    border-top-left-radius: 7px !important;
+}
+.topbar_post{
+    background: var(--primary_medium)!important;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+.post_one_pdding{
+    color:var(--primary_dark) !important;
+}
+.detailBox{
+    background: var(--primary_medium)!important;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+}

@@ -1,0 +1,193 @@
+.creategroup{
+margin-right: 60px;
+height: 33px;
+background-color: black;
+color: #fff;
+width: 147px;
+margin-bottom: 16px;
+padding-left: 22px;
+border-radius: 21px;
+padding-top: 2px;
+padding-bottom: 3px;
+font-weight: bold;
+cursor: pointer;
+margin-top: 10px;
+margin-left: 14px;
+}
+.creategroup a{
+	color:#fff;
+}
+/*  popup designs*/
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+/*  popup designs*/
+#jd-chat{
+	position:fixed;
+	bottom:0;
+	float:right;
+	right:0;
+}
+
+#jd-chat .jd-user
+{	
+margin-right: 11px;
+width: 450px;
+display: inline-block;
+border: 1px solid #ccc;
+}
+#jd-chat .jd-online
+{	
+margin-right: 11px;
+width: 325px;
+display: inline-block;
+border: 1px solid #ccc;
+}
+#jd-chat .jd-online .light
+{
+	font-weight:bold;
+	text-decoration:none;
+	color:red;
+	text-transform:none;
+	float:right;
+	display:none;
+}
+
+#jd-chat .jd-header .close-this
+{
+	float:right;
+}
+#jd-chat .jd-header
+{
+padding: 5px;
+background: black;
+color: white;
+overflow: hidden;
+cursor: pointer;
+}
+
+#jd-chat .jd-body .jd-online_user
+{
+	display:block;
+	padding:5px;		
+	cursor:pointer;
+	border-bottom:solid 1px gray;
+}
+#jd-chat .jd-body
+{
+min-height: 250px;
+background: #fff;
+height: 200px;
+overflow: scroll;
+}
+
+#jd-chat .jd-body  span.me
+{
+	display:block;
+	color:white;
+    width:100%;
+	text-align:right;
+	margin-top:2%;
+	font-size:18px;
+	padding-right:2%;
+	background:green;
+	padding-top:10px;
+	padding-bottom:10px;
+ }
+
+#jd-chat .jd-body span.other
+{
+	display:block;
+	color:black;
+	width:100%;
+	margin-top:2%;
+	font-size:18px;
+	padding-left:2%;
+	background:yellow;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+#jd-chat .jd-footer
+{
+	
+background: white;
+color: white;
+overflow: hidden;
+}
+
+#jd-chat .jd-footer input[type=text]
+{
+	padding: 5px;
+    width: 241px;
+    float: left;
+    margin-right: 12px;
+    border-radius: 22px;
+    font-size: 13px;
+}
+#jd-chat .jd-footer input[type=button]
+{
+	padding: 5px;
+    width: 50px;
+    float: left;
+    margin-right: 12px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+}
+
+
+
