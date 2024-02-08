@@ -2395,7 +2395,7 @@ echo $html;
 		//google captcha code
 		$recaptchaResponse = trim($this->request->getVar('g-recaptcha-response'));
        
-        $secret='6LeRgIMdAAAAAItQnO31Va5YDAYH5rbbta8lH8XG';
+        $secret=RECAPTCHA_SECRET_KEY;
         $credential = array(
             'secret' => $secret,
             'response' => $this->request->getVar('g-recaptcha-response')

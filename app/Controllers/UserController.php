@@ -3547,7 +3547,7 @@ echo $html;
 		//google captcha code
 		$recaptchaResponse = trim($this->request->getVar('g-recaptcha-response'));
        
-        $secret='6LchfF4mAAAAAI5AOBEak4gloh4tCsLKoKPCTD1o';
+        $secret=RECAPTCHA_SECRET_KEY;
         $credential = array(
             'secret' => $secret,
             'response' => $this->request->getVar('g-recaptcha-response')
@@ -3561,7 +3561,7 @@ echo $html;
        curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
        $response = curl_exec($verify);
        $status= json_decode($response, true);
-        $status['success']=true;
+
 	   if($status['success']){ 
 		   $users->save($data);
 		   

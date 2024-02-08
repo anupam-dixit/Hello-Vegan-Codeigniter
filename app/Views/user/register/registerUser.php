@@ -80,7 +80,7 @@ $public_url=base_url()."/public/frontend/";
 							<div class="col-lg-6 col-md-12 col-sm-12 form_mobilepadding">
                              <div class="form-group">
 							 <label for="Username">&nbsp;</label>
-                               <div class="g-recaptcha" data-sitekey="6LchfF4mAAAAANL2DWJla8OiLD3izArQivmr3O1X"></div>
+                               <div class="g-recaptcha" data-sitekey="<?=RECAPTCHA_SITE_KEY?>"></div>
                               </div>
                             </div>
 							<div class="col-md-12 col-sm-12">
