@@ -1,4 +1,5 @@
 Backup
-public/uploads
 writable
 *.zip
+app/Config/App.php
+app/Config/Database.php
