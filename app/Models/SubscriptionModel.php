@@ -13,4 +13,8 @@ class SubscriptionModel extends Model{
 		$sql="select * from subscriptions";
         return $this->db->query($sql)->getResult();
 	}
+    public function byId($id){
+        $sql="select * from subscriptions where id=$id";
+        return $this->db->query($sql)->getResult();
+    }
 }

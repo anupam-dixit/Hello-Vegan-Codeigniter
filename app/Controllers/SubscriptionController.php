@@ -33,38 +33,33 @@ class SubscriptionController extends BaseController
 
     function purchase($id)
     {
+        $s=new SubscriptionModel();
+        $s=$s->byId($id)[0];
         require_once('app/Libraries/stripe-php/init.php');
         \Stripe\Stripe::setApiKey(getenv('STRIPE_SECRET_KEY'));
-        $customerList = \Stripe\Customer::all(['email' => session()->get('emailUserH')]);
-        $customer=null;
+//        $customerList = \Stripe\Customer::all(['email' => session()->get('emailUserH')]);
+//        $customer=null;
         $u=new UserModel();
         $u=(object)$u->getSingleUser(session()->get('idUserH'));
-        if (count($customerList->data)==0){
-            // New Customer
-            $customer = \Stripe\Customer::create([
-                'email' => $u->email,
-                'name' => "$u->name $u->last_name",
-                'phone' => $u->mobile_no,
-                'address' => [
-                    'line1' => $u->address,
-                    'city' => $u->city,
-                    'state' => $u->state,
-                    'postal_code' => $u->pin_code,
-//                    'country' => 'IN',
-                ],
-            ]);
-        } else{
-            $customer=$customerList->first();
-        }
+//        if (count($customerList->data)==0){
+//            // New Customer
+//            $customer = \Stripe\Customer::create([
+//                'email' => $u->email,
+//                'name' => "$u->name $u->last_name",
+//                'phone' => $u->mobile_no,
+//            ]);
+//        } else{
+//            $customer=$customerList->first();
+//        }
         $d= \Stripe\Checkout\Session::create([
-            'customer' => $customer->id,
+//            'customer' => $customer->id,
             'line_items' => [
                 [
                     'price_data' => [
-                        'currency' => 'usd',
-                        'unit_amount' => 2000, // Amount in cents
+                        'currency' => (strtolower($u->country)=='india')?'inr': 'usd',
+                        'unit_amount' => $s->price*100, // Amount in cents
                         'product_data' => [
-                            'name' => 'Your Product Name',
+                            'name' => $s->title." Subscription",
                         ],
                     ],
                     'quantity' => 1,

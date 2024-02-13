@@ -24,7 +24,7 @@ class App extends BaseConfig
      * @var string
      */
 //    public $baseURL = 'https://hello-vegans.com/';
-    public $baseURL = 'https://vegan.godigitaldaddy.co.in/';
+    public $baseURL = 'http://vegan/';
 
     /**
      * --------------------------------------------------------------------------
