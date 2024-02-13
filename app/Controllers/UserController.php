@@ -1,5 +1,6 @@
 <?php
 namespace App\Controllers;
+use App\Models\SubscriptionModel;
 use CodeIgniter\Controller;
 use App\Models\UserModel;
 use App\Models\BlogModel;
@@ -1421,7 +1422,7 @@ public function profileUser1(){
 		$data['chatusers'] =$users->getChatUsers();
 		$data['chatgroups'] =$users->getChatGroups($session->get('idUserH'));
 		$data['session'] =$session;
-		
+
 		$users = new UserModel();
 		$data['users']=$users->getSingleUser($session->get('idUserH'));
         $data['loginusers']=$users->getSingleUser($session->get('idUserH'));
@@ -1441,10 +1442,10 @@ public function profileUser1(){
 		$veganpost[$i]['liked_by_user']=$vegan->getPostLikeByUser($values['id'],$session->get('idUserH'));
 		$i++;
 		}
-		
+
 		$data['posts']=$veganpost;
 		$data['photos']=$veganphoto;
-	
+
         //$data['comment']=$vegan->getPostCommentByid($session->get('idUserH'));
       /*  echo "<pre>";
        print_r($data);
@@ -3333,7 +3334,9 @@ echo $html;
 	
 	public function registerUser(){
 		$users = new UserModel();
+		$subscriptions = new SubscriptionModel();
 		$data['country'] =$users->getAllCountry();
+		$data['subscriptions'] =$subscriptions->all();
 		return view('user/register/registerUser',$data);
 	}
 	public function accountVerification(){

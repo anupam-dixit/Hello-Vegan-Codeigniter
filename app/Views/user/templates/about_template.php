@@ -8,6 +8,8 @@ $public_url=base_url()."/public/frontend/";
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>Hello-Vegans</title>
 <?php
 /* echo "<pre>";

@@ -313,6 +313,10 @@ $routes->get('/user/blog_user', 'User1Controller::blog_user',['filter' => 'authG
 $routes->get('/user/profile-edit', 'User1Controller::profileEdit');
 $routes->get('/user/profile-update', 'User1Controller::updateUserProfile');
 $routes->post('/user/insertProfilePost', 'UserController::insertProfilePost');
+
+$routes->get('/subscription/list', 'SubscriptionController::index');
+$routes->get('/subscription/purchase/(:any)', 'SubscriptionController::purchase/$1');
+
 //friend
 $routes->get('/user/friendlist', 'UserController::friendList',['filter' => 'authGuardUser']);
 $routes->get('/user/friendrequestlist', 'UserController::friendRequestList',['filter' => 'authGuardUser']);

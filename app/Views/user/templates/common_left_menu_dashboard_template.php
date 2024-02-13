@@ -62,7 +62,7 @@
       <div class="row">
               <div class="col">
                   <a href="/user/dashboard">
-                  <img src="/public/frontend/images/logo.png" class="img-fluid">
+                  <img width="150" src="/public/frontend/images/logo.png" class="img-fluid">
                   </a>
               </div>
       </div>
