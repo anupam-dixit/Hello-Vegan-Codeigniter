@@ -316,6 +316,7 @@ $routes->post('/user/insertProfilePost', 'UserController::insertProfilePost');
 
 $routes->get('/subscription/list', 'SubscriptionController::index');
 $routes->get('/subscription/purchase/(:any)', 'SubscriptionController::purchase/$1');
+$routes->get('/subscription/handler', 'SubscriptionController::handlePurchase');
 
 //friend
 $routes->get('/user/friendlist', 'UserController::friendList',['filter' => 'authGuardUser']);

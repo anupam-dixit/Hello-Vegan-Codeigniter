@@ -3,16 +3,23 @@ namespace App\Controllers;
 use App\Models\EventModel;
 use App\Models\PostModel;
 use App\Models\RestaurantsModel;
+use App\Models\SubscriptionPurchaseModel;
 use App\Models\UserChatModel;
 use App\Models\UserModel;
 use CodeIgniter\Controller;
 use App\Models\SubscriptionModel;
+use Razorpay\Api\Api;
+
 class SubscriptionController extends BaseController
 {
     protected $subscriptionModel;
+    protected $subscriptionPurchaseModel;
+    protected $api;
     public function __construct()
     {
+        $this->api= new Api(getenv('RZP_KEY_TEST'), getenv('RZP_KEY_SECRET_TEST'));
         $this->subscriptionModel=new SubscriptionModel();
+        $this->subscriptionPurchaseModel=new SubscriptionPurchaseModel();
     }
 
     public function index()
@@ -34,41 +41,39 @@ class SubscriptionController extends BaseController
     function purchase($id)
     {
         $s=new SubscriptionModel();
-        $s=$s->byId($id)[0];
-        require_once('app/Libraries/stripe-php/init.php');
-        \Stripe\Stripe::setApiKey(getenv('STRIPE_SECRET_KEY'));
-//        $customerList = \Stripe\Customer::all(['email' => session()->get('emailUserH')]);
-//        $customer=null;
         $u=new UserModel();
+        $s=$s->byId($id)[0];
         $u=(object)$u->getSingleUser(session()->get('idUserH'));
-//        if (count($customerList->data)==0){
-//            // New Customer
-//            $customer = \Stripe\Customer::create([
-//                'email' => $u->email,
-//                'name' => "$u->name $u->last_name",
-//                'phone' => $u->mobile_no,
-//            ]);
-//        } else{
-//            $customer=$customerList->first();
-//        }
-        $d= \Stripe\Checkout\Session::create([
-//            'customer' => $customer->id,
-            'line_items' => [
-                [
-                    'price_data' => [
-                        'currency' => (strtolower($u->country)=='india')?'inr': 'usd',
-                        'unit_amount' => $s->price*100, // Amount in cents
-                        'product_data' => [
-                            'name' => $s->title." Subscription",
-                        ],
-                    ],
-                    'quantity' => 1,
-                ],
+        $order=$this->api->paymentLink->create([
+            'reference_id'=>'ref_'.uniqid().'_'.$s->id,
+            'amount'=>$s->price*100,
+            'currency'=>'INR',
+            'accept_partial'=>false,
+            'expire_by' => time()+20*60,
+            'description' => getenv("APP_NAME")." ".$s->title." Membership",
+            'customer' => [
+                'name'=>$u->name,
+                'email' => $u->email,
+//                'contact'=>$u->mobile_no
             ],
-            'mode' => 'payment',
-            'success_url' => 'https://example.com/success',
-            'cancel_url' => 'https://example.com/cancel',
+//            'notify'=>[
+//                'sms'=>true,
+//                'email'=>true
+//            ] ,
+            'callback_url' => base_url('subscription/handler'),
         ]);
-        return json_encode($d);
+        if (isset($order->short_url)){
+            header("Location: $order->short_url");
+            die();
+        }
+    }
+    function handlePurchase()
+    {
+        try {
+            $apiResponse=$this->api->paymentLink->fetch($this->request->getGet('razorpay_payment_link_id'));
+            echo ($this->subscriptionPurchaseModel->insertPayment($apiResponse,(object)$this->request->getGet()))?'Ok':'No';
+        } catch (Exception $exception){
+            die("Invalid Operation");
+        }
     }
 }
