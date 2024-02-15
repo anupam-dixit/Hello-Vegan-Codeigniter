@@ -13,7 +13,7 @@ class SubscriptionPurchaseModel extends Model{
         return $this->db->query($sql)->getResult();
     }
     public function insertPayment($apiResp,$queryParams){
-        $sql="insert into subscription_purchase (subscription_id, amount_paid, payment_id, payment_link_id, payment_link_reference_id, status, created_by) 
+        $sql="insert into subscription_purchase (subscription_id, amount_paid, payment_id, payment_link_id, payment_link_reference_id, status, created_by, expire_at) 
                 values (
                         '".explode("_",$apiResp->reference_id)[2]."',
                         '".($apiResp->amount_paid/100)."',
@@ -21,7 +21,8 @@ class SubscriptionPurchaseModel extends Model{
                         '".$queryParams->razorpay_payment_link_id."',
                         '".$queryParams->razorpay_payment_link_reference_id."',
                         '".$apiResp->status."',
-                        '".session()->get('idUserH')."'
+                        '".session()->get('idUserH')."',
+                        (SELECT FROM_UNIXTIME(".$apiResp->expire_by."))
                         )";
         return $this->db->query($sql);
     }

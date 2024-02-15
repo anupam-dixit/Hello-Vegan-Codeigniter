@@ -56,10 +56,10 @@ class SubscriptionController extends BaseController
                 'email' => $u->email,
 //                'contact'=>$u->mobile_no
             ],
-//            'notify'=>[
-//                'sms'=>true,
-//                'email'=>true
-//            ] ,
+            'notify'=>[
+                'sms'=>true,
+                'email'=>true
+            ] ,
             'callback_url' => base_url('subscription/handler'),
         ]);
         if (isset($order->short_url)){
@@ -71,9 +71,13 @@ class SubscriptionController extends BaseController
     {
         try {
             $apiResponse=$this->api->paymentLink->fetch($this->request->getGet('razorpay_payment_link_id'));
-            echo ($this->subscriptionPurchaseModel->insertPayment($apiResponse,(object)$this->request->getGet()))?'Ok':'No';
-        } catch (Exception $exception){
-            die("Invalid Operation");
+            $data['status']=$this->subscriptionPurchaseModel->insertPayment($apiResponse,(object)$this->request->getGet());
+            $data['api']=$apiResponse;
+        } catch (\Exception $exception){
+            $data['status']=false;
+            $data['api']=null;
+            $data['error']=$exception->getMessage();
         }
+        return view('user/subscription/handler',$data);
     }
 }

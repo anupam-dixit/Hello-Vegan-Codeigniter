@@ -116,6 +116,7 @@ $location=$users['location'];
                                             <a class="btn-floating" href="<?php echo base_url();?>/user/profile-edit">
                                                 <div class="after-span ripple"></div>
                                                 <span> </span> <?=lang('app.profile._3')?> </a></div>
+
                                     </div>
                                 </div>
                             </div>
