@@ -128,6 +128,55 @@ $location=$users['location'];
     </div>
     <div class="profile_middel">
         <div class="container">
+<?php
+if ($current_subscription->purchase){
+    ?>
+    <div class="row mt-5 mb-5">
+        <div class="col">
+            <div class="card">
+                <div class="card-header"><h1>Your Subscription</h1></div>
+                <div class="card-body p-5">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-1">
+                            <img src="<?=$current_subscription->subscription->icon?>" alt="" class="img-thumbnail">
+                        </div>
+                        <div class="col">
+                            <h5>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-2"><b>Subscription</b></div>
+                                    <div class="col text-primary"><?=$current_subscription->subscription->title?></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-2"><b>Purchased On</b></div>
+                                    <div class="col text-primary"><?=$current_subscription->purchase->created_at?></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-2"><b><?=(new DateTime($current_subscription->purchase->expire_at)>=new DateTime("today"))?'Expiring':'Expired'?> On</b></div>
+                                    <div class="col text-primary"><?=$current_subscription->purchase->expire_at?></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl-2"><b>Features</b></div>
+                                    <div class="col text-primary">
+                                        <ul>
+                                            <?php
+                                            foreach ($current_subscription->subscription->data as $key=>$value) {
+                                                echo "<li>".strtoupper($key)." : $value</li>";
+                                            }
+                                            ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+?>
+
             <div class="row mt-5">
                 <?php
                 foreach ($subscriptions as $s) {

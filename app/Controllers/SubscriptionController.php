@@ -25,6 +25,19 @@ class SubscriptionController extends BaseController
     public function index()
     {
         $session = session();
+        $sm=new SubscriptionPurchaseModel();
+        $data['current_subscription']=$sm->userActiveSubscription($session->get('idUserH'));
+//        die(json_encode($data['current_subscription']));
+//        echo $data['current_subscription']->usage['post'];
+//        echo $data['current_subscription']->data;
+//        die($data['current_subscription']->usage['post']);
+//        die(json_encode([$data['current_subscription']->usage['blog'] , $data['current_subscription']->subscription->data->blog]));
+//        if ($data['current_subscription']->usage['blog'] < $data['current_subscription']->subscription->data->blog){
+//            echo "permitted";
+//        } else{
+//            echo "not";
+//        }
+//        die();
         $users = new UserChatModel();
         $data['chatusers'] =$users->getChatUsers();
         $data['chatgroups'] =$users->getChatGroups($session->get('idUserH'));

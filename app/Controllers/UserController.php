@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 use App\Models\SubscriptionModel;
+use App\Models\SubscriptionPurchaseModel;
 use CodeIgniter\Controller;
 use App\Models\UserModel;
 use App\Models\BlogModel;
@@ -3814,7 +3815,6 @@ echo $html;
 		die;
 		}
 	public function insertVeganPost(){
-		
 		$session = session();
 		$post_image_db_data='';
 		$post_image = $this->request->getFile('create_post_image');

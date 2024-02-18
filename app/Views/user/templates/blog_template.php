@@ -6,7 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>Hello-Vegans</title>
+    <?php use App\Models\SubscriptionPurchaseModel;
 
+    $sm = new SubscriptionPurchaseModel();
+    $current_subscription = $sm->userActiveSubscription($session->get('idUserH'));
+
+    ?>
 <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -195,7 +200,7 @@
  <span id="showmodel" style="display:none"></span>  
 <div class="modal fade" id="addBlogModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-  <form action="<?php echo base_url('user/blog/insert-blog');?>" method="post" enctype="multipart/form-data" id="blogForm" name="blogForm"> 
+  <form onsubmit="return checkLimit()" action="<?php echo base_url('user/blog/insert-blog');?>" method="post" enctype="multipart/form-data" id="blogForm" name="blogForm">
     <div class="modal-content model_add_event">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><?=lang('app.profile._7')?></h5>
@@ -356,11 +361,34 @@
         </div>
     </div>
 </div>
-
+<div id="purchaseSubscriptionModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Subscription Limits exceed</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                You can post upto <?=$current_subscription->subscription->data->blog?> Blogs in your
+                <b><?=$current_subscription->subscription->title?> Membership</b> ! Please upgrade your plan to increase limits.
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-success" href="/subscription/list">See Plans</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src='<?php echo base_url().'/public/frontend/';?>js/owl.carousel.min.js'></script> 
 <script>
     /*JS isn't my expertise 😉*/
+function checkLimit() {
+    var ispermitted=<?=($current_subscription->usage['blog'] < $current_subscription->subscription->data->blog)?'true':'false'?>;
+    if (!ispermitted){
+        $("#purchaseSubscriptionModal").modal('show')
+    }
+    return ispermitted
+}
 $(document).ready(function() {
     $("#menuButton").on("click", function(){
         $(".side-a").toggleClass("is-open");
@@ -467,8 +495,8 @@ function getSingleblog(id){
 
 function hidepopup(){
       $("#showmodel").css('display','none');
-}     
-  
+}
+
  var spinner = $('#loader');
  jQuery("#blogForm").submit('on',function(e){
 	var detail = CKEDITOR.instances['detail'].getData();

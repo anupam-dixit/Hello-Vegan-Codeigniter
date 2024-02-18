@@ -9,6 +9,13 @@
 $public_url=base_url()."/public/frontend/";
 $public_url_bower=base_url()."/public/";
 $baseurl=base_url()."/";
+
+use App\Models\SubscriptionPurchaseModel;
+
+$sm = new SubscriptionPurchaseModel();
+$current_subscription = $sm->userActiveSubscription($session->get('idUserH'));
+
+
 ?>
 <!-- Bootstrap -->
 <!--<link href="--><?php //echo $public_url;?><!--css/bootstrap.css" rel="stylesheet">-->
@@ -199,7 +206,23 @@ $baseurl=base_url()."/";
 </div>
 
 
-
+<div id="purchaseSubscriptionModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Subscription Limits exceed</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                You can post upto <?=$current_subscription->subscription->data->recipe?> Recipe in your
+                <b><?=$current_subscription->subscription->title?> Membership</b> ! Please upgrade your plan to increase limits.
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-success" href="/subscription/list">See Plans</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <!--<script src="--><?php //echo $public_url;?><!--js/bootstrap.min.js"></script> -->
@@ -293,6 +316,13 @@ function initMap() {
 }
 </script>
 <script>
+    function checkLimit() {
+        var ispermitted=<?=($current_subscription->usage['recipe'] < $current_subscription->subscription->data->recipe)?'true':'false'?>;
+        if (!ispermitted){
+            $("#purchaseSubscriptionModal").modal('show')
+        }
+        return ispermitted
+    }
  var spinner = $('#loader');
  jQuery("#ReceipeeForm").submit('on',function(e){
 	 var detail = CKEDITOR.instances['detail'].getData();

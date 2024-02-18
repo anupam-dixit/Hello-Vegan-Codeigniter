@@ -77,7 +77,7 @@ $baseurl=base_url()."/";
     <span id="showmodel" style="display:none"></span>
 <div class="modal fade" id="adddReceipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-  <form action="<?php echo base_url('/user/user-recipe-insert');?>" method="post" enctype="multipart/form-data" id="ReceipeeForm" name="ReceipeeForm">
+  <form onsubmit="return checkLimit()" action="<?php echo base_url('/user/user-recipe-insert');?>" method="post" enctype="multipart/form-data" id="ReceipeeForm" name="ReceipeeForm">
     <div class="modal-content model_add_event">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add Recipe</h5>

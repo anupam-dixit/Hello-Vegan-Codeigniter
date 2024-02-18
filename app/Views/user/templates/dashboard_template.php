@@ -10,7 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<link href="<?php echo base_url().'/public/frontend/';?>css/style.css" rel="stylesheet">
+<link href="<?php use App\Models\SubscriptionPurchaseModel;
+
+$sm = new SubscriptionPurchaseModel();
+$current_subscription = $sm->userActiveSubscription($session->get('idUserH'));
+
+echo base_url().'/public/frontend/';?>css/style.css" rel="stylesheet">
 <link href="<?php echo base_url().'/public/frontend/';?>css/home_page.css" rel="stylesheet">
 <link href="<?php echo base_url().'/public/frontend/';?>css/responsive.css" rel="stylesheet">
 <link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
@@ -229,7 +234,7 @@ body {
             </div>
           </div>
           <div class="frame__content">
-            <form id="veganpostform" method="post" enctype="multipart/form-data">
+            <form onsubmit="return checkLimit()" id="veganpostform" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <textarea  rows="4" cols="50" class="form-control" name="create_post_content" id="create_post_content" placeholder="<?=lang('app.user_dashboard._13')?>"></textarea>
               </div>
@@ -304,10 +309,35 @@ body {
         </div>
     </div>
 </div>
+<div id="purchaseSubscriptionModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Subscription Limits exceed</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                You can post upto <?=$current_subscription->subscription->data->post?> Posts in your
+                <b><?=$current_subscription->subscription->title?> Membership</b> ! Please upgrade your plan to increase limits.
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-success" href="/subscription/list">See Plans</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src='<?php echo base_url().'/public/frontend/';?>js/owl.carousel.min.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
+    function checkLimit() {
+        var ispermitted=<?=($current_subscription->usage['post'] < $current_subscription->subscription->data->post)?'true':'false'?>;
+        if (!ispermitted){
+            createpostpopup_close()
+            $("#purchaseSubscriptionModal").modal('show')
+        }
+        return ispermitted
+    }
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
     }
