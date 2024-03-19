@@ -279,6 +279,7 @@ $routes->post('/user/get-country-list', 'UserController::getCountryList',['filte
 $routes->post('/user/get-state-list', 'UserController::getStateList',['filter' => 'authGuardUser']);
 //dashboard
 $routes->get('/user/dashboard', 'UserController::dashboard',['filter' => 'authGuardUser']);
+$routes->get('/user/send-auth', 'UserController::sendAuth',['filter' => 'authGuardUser']);
 $routes->post('/user/dashboardLoadMore', 'UserController::dashboardLoadMore',['filter' => 'authGuardUser']);
 $routes->get('/user/dashboard1', 'DemoController::dashboard',['filter' => 'authGuardUser']);
 $routes->post('/user/dashboardScroll', 'DemoController::dashboardScroll',['filter' => 'authGuardUser']);
@@ -315,7 +316,7 @@ $routes->get('/user/profile-update', 'User1Controller::updateUserProfile');
 $routes->post('/user/insertProfilePost', 'UserController::insertProfilePost');
 
 $routes->get('/subscription/list', 'SubscriptionController::index');
-$routes->get('/subscription/purchase/(:any)', 'SubscriptionController::purchase/$1');
+$routes->get('/subscription/purchase/(:any)/(:any)', 'SubscriptionController::purchase/$1/$2');
 $routes->get('/subscription/handler', 'SubscriptionController::handlePurchase');
 
 //friend

@@ -1,5 +1,6 @@
 <?php
 namespace App\Controllers;
+use App\Models\SubscriptionPurchaseModel;
 use CodeIgniter\Controller;
 use App\Models\UserModel;
 use App\Models\AdminModel;
@@ -294,6 +295,5 @@ class ApiChatController extends BaseController
 	 echo json_encode($data);
 		
 	}
-	
 }
 ?>

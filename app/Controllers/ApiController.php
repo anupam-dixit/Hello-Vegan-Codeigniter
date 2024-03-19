@@ -1,5 +1,7 @@
 <?php
 namespace App\Controllers;
+use App\Models\SubscriptionModel;
+use App\Models\SubscriptionPurchaseModel;
 use CodeIgniter\Controller;
 use App\Models\UserModel;
 use App\Models\BlogModel;
@@ -14,10 +16,19 @@ use App\Models\PageModel;
 use App\Models\CooksModel;
 use App\Models\ProductModel;
 use App\Models\RestaurantsModel;
+use Razorpay\Api\Api;
 
 class ApiController extends BaseController
 {
-	public function sendForgotPasswordLink(){
+    protected $res=['status'=>false,'message'=>'Unable to perform this action','data'=>null];
+    public function __construct()
+    {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
+        header('Access-Control-Allow-Headers: token, Content-Type');
+    }
+
+    public function sendForgotPasswordLink(){
 		header('Access-Control-Allow-Origin: *');
          header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
          header('Access-Control-Allow-Headers: token, Content-Type');
@@ -3254,5 +3265,66 @@ return $msg;
         }
     }
 
+    public function getMySubscription(){
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
+        header('Access-Control-Allow-Headers: token, Content-Type');
+        $sm=new SubscriptionPurchaseModel();
+        echo json_encode($sm->userActiveSubscription($this->request->getVar('user_id')));
+    }
+    public function allSubscription(){
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
+        header('Access-Control-Allow-Headers: token, Content-Type');
+        $m=new SubscriptionModel();
+        echo json_encode($m->all());
+    }
+    function subscription_purchase_link()
+    {
+        $s=new SubscriptionModel();
+        $u=new UserModel();
+        $rzp=new Api(getenv('RZP_KEY_TEST'), getenv('RZP_KEY_SECRET_TEST'));
+        $s=$s->byId($this->request->getVar('subscription_id'))[0];
+        $u=(object)$u->getSingleUser($this->request->getVar('user_id'));
+        $order=$rzp->paymentLink->create([
+            'reference_id'=>'ref_'.uniqid().'_'.$s->id,
+            'amount'=>$s->price*100,
+            'currency'=>'INR',
+            'accept_partial'=>false,
+            'expire_by' => time()+20*60,
+            'description' => getenv("APP_NAME")." ".$s->title." Membership",
+            'customer' => [
+                'name'=>$u->name,
+                'email' => $u->email,
+//                'contact'=>$u->mobile_no
+            ],
+            'notify'=>[
+                'sms'=>true,
+                'email'=>true
+            ] ,
+            'callback_url' => base_url('subscription/handler'),
+        ]);
+        echo $order->short_url;
+    }
+
+    function fetchUser()
+    {
+        if (!$this->request->getGet('email')&&!$this->request->getGet('id')){
+            $this->res['message']='ID or Email is required';
+            goto send;
+        }
+        $u = new UserModel();
+        if ($this->request->getGet('email')){
+            $u=$u->getSingleUserByEmail($this->request->getGet('email'));
+        }
+        if ($this->request->getGet('id')){
+            $u=$u->find($this->request->getGet('id'));
+        }
+        $this->res['status']=true;
+        $this->res['message']='Action performed successfully';
+        $this->res['data']= $u;
+        send:
+        return $this->response->setJSON($this->res);
+    }
 }
 ?>

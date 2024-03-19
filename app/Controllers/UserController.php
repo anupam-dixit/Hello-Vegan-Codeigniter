@@ -3627,9 +3627,9 @@ echo $html;
 		else 
 		{
            $session->setFlashdata('msg', 'User has been registerd successfully<br> A verification link has been sent to your email account.');
-		    /* $data = $email->printDebugger(['headers']);
+		     $data = $email->printDebugger(['headers']);
             print_r($data);
-			die; */
+			die;
         }
 		   //send email
       }else{
@@ -3684,7 +3684,7 @@ echo $html;
 					return redirect()->to('/user/login');
 				}	
 			}else{
-			   $session->setFlashdata('msg', 'Please Verify Your email address if you did not get e-mail please click here to resend mail <br><a href="https://vegan.sidhauli.co.in/user/resendmail">click here</a>');
+			   $session->setFlashdata('msg', 'Please Verify Your email address if you did not get e-mail please click here to resend mail <br><a href="/user/resendmail">click here</a>');
 			   /* $session->setFlashdata('msg', 'Please Verify Your email address'); */
                return redirect()->to('/user/login');			   
 			}
@@ -4288,4 +4288,13 @@ public function friendRequestSend(){
 		$request=$db->query("insert into  users_remove  set removed_by_user_id='".$session->get('idUserH')."',removed_user_id='".$id."'");
 		die;
 	}
+
+    function sendAuth()
+    {
+        if (!$this->request->getGet('target')){
+            die('No target found');
+        }
+        header("Location: ".$this->request->getGet('target').'?i='.base64_encode(session()->get('idUserH')));
+        die();
+    }
 }

@@ -10,6 +10,15 @@ $public_url = base_url() . "/public/frontend/";
         border-radius: 10px;
         padding: 10px;
         margin-bottom: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .subs.active {
+        border: 0;
+        background: greenyellow;
+        color: white;
+        box-shadow: 18px 18px 18px #888888;
+        margin: -10px;
     }
     .sel-subs{
         text-align: center;
@@ -136,20 +145,6 @@ $public_url = base_url() . "/public/frontend/";
                                                                              data-sitekey="<?= RECAPTCHA_SITE_KEY ?>"></div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row">
-                                                                    <?php
-                                                                    foreach ($subscriptions as $subscription) {
-                                                                        $limits = json_decode($subscription->data);
-                                                                        ?>
-                                                                        <div class="col">
-                                                                            <div id="sel_sub_<?=$subscription->id?>" onclick="selSubs(<?=$subscription->id?>)" class="sel-subs">
-                                                                                <?=$subscription->title?>
-                                                                            </div>
-                                                                        </div>
-                                                                        <?php
-                                                                    }
-                                                                    ?>
-                                                                </div>
                                                                 <div class="col-md-12 col-sm-12">
                                                                     <div class="tacbox">
                                                                         <input id="checkbox" type="checkbox"
@@ -202,9 +197,12 @@ $public_url = base_url() . "/public/frontend/";
                                 <!--                  </script>-->
                                 <?php
                                 foreach ($subscriptions as $subscription) {
+                                    if ($subscription->id==0){
+                                        continue;
+                                    }
                                     $limits = json_decode($subscription->data)
                                     ?>
-                                    <div id="subs_info_<?=$subscription->id?>" class="subs d-none text-success">
+                                    <div id="subs_info_<?=$subscription->id?>" class="subs text-success">
                                         <div class="row align-items-center">
                                             <div class="col-2">
                                                 <img src="<?= $subscription->icon ?>" alt="" class="img-fluid">
@@ -272,12 +270,6 @@ $public_url = base_url() . "/public/frontend/";
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script>
 <script>
-    function selSubs(id) {
-        $(".sel-subs").removeClass('active')
-        $(".subs").addClass('d-none')
-        $("#subs_info_"+id).removeClass('d-none')
-        $("#sel_sub_"+id).toggleClass('active')
-    }
     // -----Country Code Selection
     $("#mobile_no").intlTelInput({
         initialCountry: "in",
@@ -285,6 +277,10 @@ $public_url = base_url() . "/public/frontend/";
         // utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.4/js/utils.js"
     });
 
+    $(".subs").click(function(){
+        $(".subs").removeClass("active")
+        $(this).addClass('active')
+    });
     function submitForm() {
 
         $("#callingcode").val($(".iti__selected-dial-code").html());

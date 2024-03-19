@@ -3,13 +3,6 @@
   <component name="PublishConfigData" serverName="Go Digital Daddy VPS" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
-      <paths name="Boom">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="Go Digital Daddy VPS">
         <serverdata>
           <mappings>

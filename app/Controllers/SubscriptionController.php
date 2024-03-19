@@ -51,12 +51,12 @@ class SubscriptionController extends BaseController
         return view('user/subscription/list',$data);
     }
 
-    function purchase($id)
+    function purchase($subscriptionId,$userId)
     {
         $s=new SubscriptionModel();
         $u=new UserModel();
-        $s=$s->byId($id)[0];
-        $u=(object)$u->getSingleUser(session()->get('idUserH'));
+        $s=$s->byId($subscriptionId)[0];
+        $u=(object)$u->getSingleUser($userId);
         $order=$this->api->paymentLink->create([
             'reference_id'=>'ref_'.uniqid().'_'.$s->id,
             'amount'=>$s->price*100,
@@ -73,7 +73,7 @@ class SubscriptionController extends BaseController
                 'sms'=>true,
                 'email'=>true
             ] ,
-            'callback_url' => base_url('subscription/handler'),
+            'callback_url' => base_url('subscription/handler').'?i='.urlencode(convert_uuencode($userId)),
         ]);
         if (isset($order->short_url)){
             header("Location: $order->short_url");

@@ -20,10 +20,13 @@ $location=$users['location'];
     <style>
         .subs{
             transition: 0.3s;
-            box-shadow: 10px 10px lightblue !important;
+            box-shadow: 10px 10px 20px lightgreen !important;
+            background: var(--primary_medium);
+            border-radius: 20px;
+            padding: 10px;
         }
         .subs:hover{
-            margin: 20px;
+            margin: 15px;
         }
     </style>
     <main>
@@ -47,12 +50,7 @@ $location=$users['location'];
                     <?php }else{ ?>
 
                     <div class="cover_images panel"> <img src="<?php echo $public_url;?>images/profile_banner.jpg">
-
-
-
                         <?php }
-
-
                         ?>
                         <div class="profile-header">
                             <div class=" panel-xl">
@@ -134,7 +132,7 @@ if ($current_subscription->purchase){
     <div class="row mt-5 mb-5">
         <div class="col">
             <div class="card">
-                <div class="card-header"><h1>Your Subscription</h1></div>
+                <div style="background: greenyellow;color: green" class="card-header"><h1>Your Subscription</h1></div>
                 <div class="card-body p-5">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-1">
@@ -180,12 +178,13 @@ if ($current_subscription->purchase){
             <div class="row mt-5">
                 <?php
                 foreach ($subscriptions as $s) {
+                    if ($s->id!='0'){
                     ?>
                     <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
                         <div class="card subs p-4">
-                            <a href="/subscription/purchase/<?=$s->id?>">
-                                <div class="row">
-                                    <div class="col-4">
+                            <a href="/subscription/purchase/<?=$s->id?>/<?=session()->get('idUserH')?>">
+                                <div class="row align-items-center">
+                                    <div class="col-2">
                                         <img src="<?=$s->icon?>" class="img-fluid">
                                     </div>
                                     <div class="col">
@@ -210,7 +209,7 @@ if ($current_subscription->purchase){
                                         </div>
                                         <div class="col">
                                             <div class="" style="text-align: right">
-                                                <button class="w3-button w3-purple w3-round-xxlarge">Buy <i class="fa-solid fa-angles-right"></i></button>
+                                                <button style="background: green;color: white" class="w3-button w3-round-xxlarge">Buy <i class="fa-solid fa-angles-right"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -219,6 +218,7 @@ if ($current_subscription->purchase){
                         </div>
                     </div>
                     <?php
+                    }
                 }
                 ?>
 

@@ -8,12 +8,12 @@
     <script>
         function success() {
             setTimeout(function () {
-                location.replace("/subscription/list")
+                history.go(-3)
             },2000)
         }
         function err() {
             setTimeout(function () {
-                location.replace("/subscription/list")
+                history.go(-3)
             },2000)
         }
     </script>
