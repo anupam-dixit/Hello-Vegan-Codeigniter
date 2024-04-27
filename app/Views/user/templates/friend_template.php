@@ -108,6 +108,7 @@ function cancel_request(id){
     });
 }
 function removed_people_you_may_know(id){
+    alert(id)
 	$.ajax({
    url: "<?php echo base_url();?>/user/removed-people-you-may-know",
    type: "POST",

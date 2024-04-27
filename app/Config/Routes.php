@@ -398,13 +398,13 @@ $routes->get('/user/news/category/(:any)', 'UserController::newsByCategory/$1',[
 $routes->post('/user/news/post/insert-comment', 'NewsController::insertPostCommentUser',['filter' => 'authGuardUser']);
 $routes->post('/user/blog/insert-news', 'UserController::insertNews');
 //product
-$routes->get('/user/product', 'UserController::productUser');
-$routes->get('/user/get-single-product/(:any)', 'UserController::getSingleProduct/$1');
+$routes->get('/user/product', 'UserController::productUser',['filter' => 'authGuardUser']);
+$routes->get('/user/get-single-product/(:any)', 'UserController::getSingleProduct/$1',['filter' => 'authGuardUser']);
 //cook
-$routes->get('/user/cook', 'UserController::cookUser');
-$routes->get('/user/get-single-cook/(:any)', 'UserController::getSinglecook/$1');
+$routes->get('/user/cook', 'UserController::cookUser',['filter' => 'authGuardUser']);
+$routes->get('/user/get-single-cook/(:any)', 'UserController::getSinglecook/$1',['filter' => 'authGuardUser']);
 //forum
-$routes->get('/user/ask_question', 'ForumController::ask_questionUser');
+$routes->get('/user/ask_question', 'ForumController::ask_questionUser',['filter' => 'authGuardUser']);
 $routes->get('/user/answer', 'ForumController::answerUser');
 $routes->get('/user/question', 'ForumController::questionUser');
 //about us

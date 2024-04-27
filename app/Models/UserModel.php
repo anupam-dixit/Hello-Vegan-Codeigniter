@@ -57,6 +57,34 @@ class UserModel extends Model{
 		
 		return $result_array;
 	}
+	public function people_you_may_know($id){
+		$sql_sender="select receiver_id as id  from users_friend where sender_id='".$id."'
+                    UNION
+					select sender_id as id  from users_friend where  receiver_id='".$id."'
+                     order by id";
+		$query_sender=$this->db->query($sql_sender);
+		$result=$query_sender->getResultArray();
+
+		$in=$id.",";
+		if(count($result)!=0){
+			foreach($result as $val){
+				$in.=$val['id'].",";
+			}
+
+		}
+		$in=rtrim($in,",");
+		//if($in==''){
+		//$sql="select id,name,profile_image from  users";
+		//}else{
+		$sql="select id,name,profile_image from  users where id not in (".$in.") and id not in (select sender_id from friend_request where receiver_id='".$id."') and id not in (select sender_id from friend_request where receiver_id='".$id."') and id not in (select removed_user_id from users_remove where removed_by_user_id='".$id."')";
+		//}
+
+		$query=$this->db->query($sql);
+		$result_array=$query->getResultArray();
+
+
+		return $result_array;
+	}
 	public function getFrontUserFriendPosts($id){
 	  $result_all=array();
 		$sql_sender="select * from users_friend  

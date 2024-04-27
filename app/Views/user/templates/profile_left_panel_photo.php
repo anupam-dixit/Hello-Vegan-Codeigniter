@@ -7,7 +7,7 @@
           </div>
         </div>
 		<?php
-		  if(basename($_SERVER['SCRIPT_URI'])!='friendlist'){
+		  if(basename($_SERVER['REQUEST_URI'])!='friendlist'){
 		  ?>
         <div class="side_menu photos_p_profile">
             <div class="menu_all">
@@ -37,7 +37,7 @@
           </div>
 		  <?php } ?>
 		  <?php
-		  if(basename($_SERVER['SCRIPT_URI'])!='photo'){
+		  if(basename($_SERVER['REQUEST_URI'])!='photo'){
 		  ?>
 		  <div class="side_menu photos_p_profile">
             <div class="menu_all">
@@ -113,7 +113,7 @@
 		  }
 		  ?>
 		  <?php
-		  if(basename($_SERVER['SCRIPT_URI'])!='friendrequestlist'){
+		  if(basename($_SERVER['REQUEST_URI'])!='friendrequestlist'){
 		  ?>
 		  <div class="side_menu photos_p_profile">
             <div class="menu_all">

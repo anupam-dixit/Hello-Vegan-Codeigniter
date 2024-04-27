@@ -51,8 +51,8 @@ $baseurl=base_url()."/";
             
             
             <li class="main-nav-item u-only-wide">
-                <a href="<? echo base_url();?>/user/recommendation" aria-label="<?=lang('app.global.recommendation')?>" class="main-nav-button alt-text">
-                    <span class="phpicon" aria-hidden="true"><img src="https://cdn-icons-png.flaticon.com/128/5126/5126846.png" /></span>
+                <a href="<?php echo base_url();?>/user/recommendation" aria-label="<?=lang('app.global.recommendation')?>" class="main-nav-button alt-text">
+                    <span class="icon" aria-hidden="true"><img src="https://cdn-icons-png.flaticon.com/512/654/654117.png" /></span>
                 </a>
             </li>
 

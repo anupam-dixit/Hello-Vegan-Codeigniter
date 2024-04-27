@@ -94,68 +94,6 @@ $public_url_bower=base_url()."/public/";
           <button class="common-more">
           <a href="<?php echo base_url();?>/user/event"><span class="text">See More</a></span>
           </button>
-          <!-- <h2 class="section-title">Events</h2>
-         <div class="events">
-         <div class="events_images">
-     <?php 
-             if(count($event_latest)!=0){
-      ?>
-      <a href="<?php echo base_url();?>/user/event"><img src="<?php echo base_url().'/'.$event_latest['image'];?>"></a>
-            <?php       
-       }else{
-        ?> 
-      <img src="<?php echo base_url().'/public/frontend/';?>images/events_images.jpg">  
-       <?php
-       }
-      ?>
-         
-         <div class="live_text">
-         <div class="live_bg">
-         <div class="live_left">
-         <h2>Live</h2>
-         <h3><i class="fa fa-users" aria-hidden="true"></i> 3K People</h3></div>
-         <div class="live_right">
-         <a href="#"><img src="<?php echo base_url().'/public/frontend/';?>images/share.png"></a>
-         <a href="#"><img src="<?php echo base_url().'/public/frontend/';?>images/close.png"></a>
-         </div>
-         </div>
-         </div>
-         
-         </div> --> 
-          
-          <!--      <div class="commnet_events">
-       <ul class="commentList_<?php echo $event_latest['id'];?>">
- <?php 
-            if(count($event_comment)!=0){
-      foreach($event_comment as $comment){
-      if($comment['users_profile_image']==''){
-        $imagesrc=base_url().'/public/frontend/images/f_icon_user.jpg';
-      }else{
-       $imagesrc=base_url()."/".$comment['users_profile_image']; 
-      }
-      ?>
-
-         <li><span><img src="<?php echo $imagesrc ;?>"></span><p><?php echo $comment['message'];?></p> <div class="time_commnet"><?php echo date('h:i ',strtotime($comment['created_at']));?></div></li>
-
-  <?php 
-      }
-    }
-     ?> 
-  </ul>
-         <div class="comment_input">
-         <div class="search-box-wrapper">
-          <form class="form-inline" role="form" method="post" id="postcommentform_<?php echo $event_latest['id'];?>" name="postcommentform" onsubmit="return submitEventcomments('<?php echo $event_latest['id'];?>')">
-           <input type="hidden" class="" id="commented_by"  name="commented_by"  value="<?php echo $_SESSION['idUserH'];?>" size="30" aria-required="true">
-                  <input type="hidden" class="" id="post_id" name="post_id"  value="<?php echo $event_latest['id'];?>" size="30" aria-required="true">
-
-            <input type="search" name="message" id="messagecomments_<?php echo $event_latest['id'];?>" class="search-box" placeholder="Comment">
-             <span class="icon-search" aria-label="hidden"><img src="<?php echo base_url().'/public/frontend/';?>images/chat_input.png"></span> 
-                <span class="focus-border" onclick="submitEventcomments('<?php echo $event_latest['id'];?>')"></span>
-          </form> 
-        </div>
-       </div>
-         </div> --> 
-          
         </div>
       </section>
 

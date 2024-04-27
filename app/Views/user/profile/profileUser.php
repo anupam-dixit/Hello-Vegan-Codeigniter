@@ -508,11 +508,7 @@ $('.remove-preview').on('click', function() {
           fetch('/ajax/post/delete/'+$(this).attr('target'), requestOptions)
               .then(response => response.json())
               .then(data => {
-                  cuteToast({
-                      type:(data.status)? "success":"warning",
-                      title:"Message",
-                      message: data.message
-                  })
+                  alert(data.message)
                   $("#post_main_div_"+$(this).attr('target')).fadeOut(600)
               });
       });

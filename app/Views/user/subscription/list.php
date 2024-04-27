@@ -187,8 +187,8 @@ if ($current_subscription->purchase){
                                     <div class="col-2">
                                         <img src="<?=$s->icon?>" class="img-fluid">
                                     </div>
-                                    <div class="col">
-                                        <h1><?=$s->title?></h1>
+                                    <div class="col text-center">
+                                        <h2><?=$s->title?></h2>
                                         <h5>
                                             <?php
                                             $limits=json_decode($s->data)

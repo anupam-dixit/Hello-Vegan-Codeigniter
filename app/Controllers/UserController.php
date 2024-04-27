@@ -1531,7 +1531,7 @@ public function profileUser1(){
         $data['loginusers']=$users->getSingleUser($session->get('idUserH'));
 		$data['userfriend']=$users->getSingleUserFriend($session->get('idUserH'));
 		$data['friendrequest']=$users->getFriendRequest($session->get('idUserH'));
-		$data['people_you_may_know']=$users->getAllUsersList($session->get('idUserH'));
+		$data['people_you_may_know']=$users->people_you_may_know($session->get('idUserH'));
         $data['friend_request_send_by_me']=$users->friendRequestSendByMe($session->get('idUserH'));
 		$rm = new EventModel();
 		$data['event_data']=$rm->getEventByUser($session->get('idUserH'));
@@ -4285,7 +4285,7 @@ public function friendRequestSend(){
 		$session = session();
 		$db = db_connect();
 		$id=$this->request->getPost('id');
-		$request=$db->query("insert into  users_remove  set removed_by_user_id='".$session->get('idUserH')."',removed_user_id='".$id."'");
+		echo $request=$db->query("insert into  users_remove  set removed_by_user_id='".$session->get('idUserH')."',removed_user_id='".$id."'");
 		die;
 	}
 
