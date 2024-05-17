@@ -151,5 +151,11 @@
     </section>
     <!-- /.content -->
   </div>
-
+<script>
+    function delete_request(a,b) {
+        pitFetch('GET','/admin/recommendation/delete-request/'+b).then(d=>{
+            location.reload()
+        })
+    }
+</script>
 <?php echo  $this->endSection(); ?>

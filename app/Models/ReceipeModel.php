@@ -107,8 +107,9 @@ public function updateReadStatus(){
 
 	public function getAllReceipeCategory() {
 
-
-        $sql="select receipe_categories.id,receipe_categories.name from receipe_categories inner join receipes on receipe_categories.id= receipes.receipe_category_id where receipe_categories.deleted_at =0 and receipes.deleted_at=0 group by receipe_categories.name "; 
+//Khalid
+//        $sql="select receipe_categories.id,receipe_categories.name from receipe_categories inner join receipes on receipe_categories.id= receipes.receipe_category_id where receipe_categories.deleted_at =0 and receipes.deleted_at=0 group by receipe_categories.name ";
+        $sql="select * from receipe_categories where receipe_categories.deleted_at =0 group by receipe_categories.name ";
 		$query=$this->db->query($sql);
 		$result=$query->getResultArray();
 		return $result; 
@@ -138,7 +139,9 @@ public function updateReadStatus(){
 	}
 	
     public function getAllReceipe(){
-		$sql="select np.*,npc.name as category_name from receipes np inner join receipe_categories npc on npc.id=np.receipe_category_id where  np.deleted_at=0"; 
+    //Khalid
+//		$sql="select np.*,npc.name as category_name from receipes np inner join receipe_categories npc on npc.id=np.receipe_category_id where  np.deleted_at=0";
+		$sql="select np.*,npc.name as category_name from receipe_user np inner join receipe_categories npc on npc.id=np.receipe_category_id where  np.deleted_at=0";
 		$query=$this->db->query($sql);
 		$result=$query->getResultArray();
 		return $result;

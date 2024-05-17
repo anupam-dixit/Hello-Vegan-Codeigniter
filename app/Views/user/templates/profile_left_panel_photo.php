@@ -75,7 +75,8 @@
 					<?php
 					}else{
 					?>
-					<a href="<?php  echo  $baseurl.$comm;?>" data-pswp-width="2500" data-pswp-height="1667" target="_blank">
+<!--					<a href="--><?php // echo  $baseurl.$comm;?><!--" data-pswp-width="2500" data-pswp-height="1667" target="_blank">-->
+					<a href="<?php  echo  $baseurl.$comm;?>" target="_blank">
 					<img src="<?php  echo  $baseurl.$comm;?>">
 					</a>
                     <?php
@@ -84,7 +85,7 @@
 					</div>
 					<?php } else { ?>
                     <div class="post_images ">
-					<a href="<?php echo $public_url;?>images/no_img.jpg" data-pswp-width="2500" data-pswp-height="1667" target="_blank">
+					<a href="<?php echo $public_url;?>images/no_img.jpg" target="_blank">
 					<img src="<?php echo $public_url;?>images/no_img.jpg">
 					</a>
 					</div>

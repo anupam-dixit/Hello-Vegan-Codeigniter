@@ -22,7 +22,7 @@ $baseurl=base_url()."/";
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <link href="<?php echo $public_url;?>css/group.css" rel="stylesheet" />
 <link href="<?php echo $public_url;?>css/jd.css" rel="stylesheet" />
-    <link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
+    <link href="<?=base_url()?>/public/khalid/css/custom.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" crossorigin="anonymous">
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>

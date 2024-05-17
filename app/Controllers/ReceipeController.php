@@ -22,6 +22,7 @@ class ReceipeController extends BaseController
 	public function listReceipeCategory(){
 		$categories = new ReceipeModel();
 		$data['categories']=$categories->getAllReceipeCategory();
+//        echo json_encode($data['categories']);die();
 		return view('admin/receipe/listReceipeCategory',$data);
 	}
 	public function addReceipeCategory(){
@@ -96,7 +97,9 @@ class ReceipeController extends BaseController
 	}
 	public function deleteReceipe($id){
 		$receipes = new ReceipeModel();
-		$receipes->deleteReceipe($id);
+//        Khalid
+//		$receipes->deleteReceipe($id);
+		$receipes->deleteReceipeUser($id);
 	}
 	public function insertReceipe(){
 		$receipe_image_db_data='';
@@ -195,8 +198,10 @@ class ReceipeController extends BaseController
 		$data['birthday']=$users->getUserFriendBirthday($session->get('idUserH'));
 		$receipe=new ReceipeModel();
 		$data['receipeall']=$receipe->user_recipe_list($session->get('idUserH'));
-		$data['receipe_category']=$receipe->user_recipe_category();
+		$data['receipe_category']=$receipe->getAllReceipeCategory();
+//		$data['receipe_category']=$receipe->user_recipe_category();
 		$data['receipe_category_topic']=$receipe->user_recipe_category_topic();
+//        echo json_encode($data['receipeall']);die();
 		
 		return view('user/recipe/user_recipe_list',$data);
 	}

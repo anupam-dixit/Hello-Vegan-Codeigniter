@@ -59,7 +59,7 @@
         autoplay: true,
         height:100,
         width:100,
-        path: '/public/pitesh/json/<?=(!$status)?'err_1':'check_1'?>.json'
+        path: '/public/khalid/json/<?=(!$status)?'err_1':'check_1'?>.json'
     });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

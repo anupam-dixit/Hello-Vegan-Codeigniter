@@ -15,7 +15,7 @@ $public_url=base_url()."/public/frontend/";
 <link href="<?php echo  $public_url;?>css/bootstrap.css" rel="stylesheet">
 <link href="<?php echo  $public_url;?>css/style.css" rel="stylesheet">
 <link href="<?php echo  $public_url;?>css/responsive.css" rel="stylesheet">
-    <link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
+    <link href="<?=base_url()?>/public/khalid/css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="/public/frontend/css/custom/login_page.css">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>

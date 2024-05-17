@@ -295,6 +295,7 @@ class UserController extends BaseController
 		$data['userfriend']=$users->getSingleUserFriend($session->get('idUserH'));
 		$data['friendrequest']=$users->getFriendRequest($session->get('idUserH'));
 		$data['birthday']=$users->getUserFriendBirthday($session->get('idUserH'));
+//        echo json_encode($data);die();
 		return view('user/recommendation/recommendationUser',$data);
 	}
 	public function restaurantUser(){
@@ -368,8 +369,9 @@ class UserController extends BaseController
   </div>
 </header>
          
-        <button type="button" onclick="hidepopup()" class="close-video" data-dismiss="modal" aria-label="Close"> </button>
-      </div>
+             <button type="button" class="btn-close close-video" data-bs-dismiss="modal" aria-label="Close"></button>
+
+     </div>
 	  
       <div class="modal-body">
         <div class="custom_fields_pop">
@@ -398,15 +400,15 @@ class UserController extends BaseController
 			
 			<div class="product_detail_category">
         <ul>
-		<li> <span><img src="https://vegan.sidhauli.co.in/public/frontend/images/rating.png"></span>
+		<li> <span><img src="/public/frontend/images/rating.png"></span>
             <h2>Rating</h2>
             <p> 4.4/5 | 122 Reviews </p>
           </li>
-          <li> <span><img src="https://vegan.sidhauli.co.in/public/frontend/images/countryorigin.png"></span>
+          <li> <span><img src="/public/frontend/images/countryorigin.png"></span>
             <h2>Country of Origin</h2>
             <p>India</p>
           </li>
-          <li> <span><img src="https://vegan.sidhauli.co.in/public/frontend/images/manufacturing.png"></span>
+          <li> <span><img src="/public/frontend/images/manufacturing.png"></span>
             <h2>Manufacturing By</h2>
             <p>Manufacturing</p>
           </li>
@@ -1807,12 +1809,12 @@ public function profileUser1(){
       <div class="modal-header">
           <header class="common-post-header u-flex"> <img src="'.$baseurl.$data['user_profile'].'" class="user-image" alt="" width="40" height="40">
   <div class="common-post-info">
-    <div class="user-and-group u-flex "> <a href="https://vegan.sidhauli.co.in/user/public_profile/26">'.$posted_by.' </a> </div>
+    <div class="user-and-group u-flex "> <a href="/user/public_profile/26">'.$posted_by.' </a> </div>
     <div class="username_time"> <a href="#"> '.$curr_time.' </a> </div>
   </div>
 </header>
          
-        <button type="button" onclick="hidepopup()" class="close-video" data-dismiss="modal" aria-label="Close"> </button>
+        <button type="button" class="btn-close close-video" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="custom_fields_pop">
@@ -1930,7 +1932,7 @@ public function profileUser1(){
 			
 			if(count($das)>2){
 			$commentscount=count($das)-count($da);
-			$html.='<button id="viewold" onclick="showoldercomments('.$id.')" class="viewoldcommetns">View Old '.$commentscount.' Commetns</button>';
+			$html.='<button id="viewold" onclick="showoldercomments('.$id.')" class="viewoldcommetns d-none">View Old '.$commentscount.' Commetns</button>';
 			}
 		}	
 			$html.='</div>
@@ -2137,6 +2139,7 @@ echo $html;
 		$data['userfriend']=$users->getSingleUserFriend($session->get('idUserH'));
 		$data['friendrequest']=$users->getFriendRequest($session->get('idUserH'));
 		$data['birthday']=$users->getUserFriendBirthday($session->get('idUserH'));
+//        echo json_encode($data['getlatestGadgatnews']);die();
 		return view('user/news/newsUser',$data);
 	}
 	public function newsDetailsById($id){
@@ -2251,7 +2254,7 @@ echo $html;
     <div class="modal-content modal-lg">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Cook Profile </h5>
-        <button type="button" class="close-video" data-dismiss="modal" aria-label="Close"> </button>
+        <button type="button" class="btn-close close-video" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 <div class="page-wrapper ">
@@ -2263,15 +2266,15 @@ echo $html;
    
 <div class="product_detail_category">
         <ul>
-		<li> <span><img src="https://vegan.sidhauli.co.in/public/frontend/images/rating.png"></span>
+		<li> <span><img src="/public/frontend/images/rating.png"></span>
             <h2>Rating</h2>
             <p> '.$rating.'/5 | 122 Reviews </p>
           </li>
-          <li> <span><img src="https://vegan.sidhauli.co.in/public/frontend/images/experience.png"></span>
+          <li> <span><img src="/public/frontend/images/experience.png"></span>
             <h2>Experience</h2>
             <p>'.$experience.' Years</p>
           </li>
-          <li> <span><img src="https://vegan.sidhauli.co.in/public/frontend/images/specialization.png"></span>
+          <li> <span><img src="/public/frontend/images/specialization.png"></span>
             <h2>Specialization</h2>
             <p>'.$specialization.'</p>
           </li>
@@ -2657,11 +2660,11 @@ public function getSingleblog($id){
              <div class="modal-header">
 			     <header class="common-post-header u-flex"> <img src="'.$baseurl.$data['user_profile'].'" class="user-image" alt="" width="40" height="40">
   <div class="common-post-info">
-    <div class="user-and-group u-flex "> <a href="https://vegan.sidhauli.co.in/user/public_profile/26">'.$posted_by.' </a> </div>
+    <div class="user-and-group u-flex "> <a href="/user/public_profile/26">'.$posted_by.' </a> </div>
     <div class="username_time"> <a href="#"> '.$curr_time.' </a> </div>
   </div>
 </header>
-				<button type="button" class="close-video" data-dismiss="modal" aria-label="Close"> </button>
+				<button type="button" class="btn-close close-video" data-bs-dismiss="modal" aria-label="Close"></button>
 			  </div>
 			  <div class="modal-body">
 			    <div class="custom_fields_pop">
@@ -2811,7 +2814,7 @@ echo $html;
              <div class="modal-header">
 			     <header class="common-post-header u-flex"> <img src="'.$baseurl.$data['user_profile'].'" class="user-image" alt="" width="40" height="40">
   <div class="common-post-info">
-    <div class="user-and-group u-flex "> <a href="https://vegan.sidhauli.co.in/user/public_profile/26">'.$posted_by.' </a> </div>
+    <div class="user-and-group u-flex "> <a href="/user/public_profile/26">'.$posted_by.' </a> </div>
     <div class="username_time"> <a href="#"> '.$curr_time.' </a> </div>
   </div>
 </header>
@@ -3110,6 +3113,9 @@ echo $html;
 		$data['categories']=$blog->getAllPostCategory();
 		$data['start']=4;
 		$data['limit']=4;
+
+//        echo json_encode($data['blogall']);
+//        die();
 		
 		return view('user/blog/blogUser',$data);
 	}
@@ -3394,7 +3400,7 @@ echo $html;
 		          <tr>
 				     <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family:normal normal 600 40px/40px Open Sans; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
 					    <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Welcome!</h1> 
-						<img src=" https://vegan.sidhauli.co.in/public/hello_vegans/commingsoon/images/logo.png" width="125" height="120" style="display: block; border: 0px;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;" />
+						<img src=" /public/hello_vegans/commingsoon/images/logo.png" width="125" height="120" style="display: block; border: 0px;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;" />
 					</td>
 				  </tr>
 				  <tr>
@@ -3468,7 +3474,7 @@ echo $html;
 		if($send==1){
 		$email = \Config\Services::email();
         $to=$this->request->getPost('email');
-		$link="https://vegan.sidhauli.co.in/user/accountVerification?code=".$vcode;
+		$link="/user/accountVerification?code=".$vcode;
         $email->setTo($to);
         $email->setFrom('info@projectstatus.co.in', 'Confirm Registration');
         $subject="Account Verification from hello vegans";
@@ -3476,7 +3482,7 @@ echo $html;
 		          <tr>
 				     <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family:normal normal 600 40px/40px Open Sans; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
 					    <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Welcome!</h1> 
-						<img src=" https://vegan.sidhauli.co.in/public/hello_vegans/commingsoon/images/logo.png" width="125" height="120" style="display: block; border: 0px;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;" />
+						<img src=" /public/hello_vegans/commingsoon/images/logo.png" width="125" height="120" style="display: block; border: 0px;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;" />
 					</td>
 				  </tr>
 				  <tr>
@@ -3572,7 +3578,7 @@ echo $html;
 		   //send email
 		   $email = \Config\Services::email();
         $to=$this->request->getPost('email');
-		$link="https://vegan.sidhauli.co.in/user/accountVerification?code=".$rand;
+		$link="/user/accountVerification?code=".$rand;
         $email->setTo($to);
         $email->setFrom('info@projectstatus.co.in', 'Confirm Registration');
         $subject="Account Verification from hello vegans";
@@ -3580,7 +3586,7 @@ echo $html;
 		          <tr>
 				     <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family:normal normal 600 40px/40px Open Sans; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
 					    <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Welcome!</h1> 
-						<img src=" https://vegan.sidhauli.co.in/public/hello_vegans/commingsoon/images/logo.png" width="125" height="120" style="display: block; border: 0px;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;" />
+						<img src=" /public/hello_vegans/commingsoon/images/logo.png" width="125" height="120" style="display: block; border: 0px;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;" />
 					</td>
 				  </tr>
 				  <tr>

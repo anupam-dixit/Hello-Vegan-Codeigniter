@@ -103,7 +103,6 @@
     url:'/user/get-single-event/'+id,
     type:'GET',
     success:function(data){
-      console.log(data);
       $("#showmodel").css('display','block');
       $("#showmodel").html(data);
       $('#add_custom_blog').modal('show');
@@ -114,7 +113,8 @@
   }); 
   }
 function hidepopup(){
-  $("#showmodel").css('display','none');
+               alert("ok")
+  $(".add_custom_field_pop").click()
 }
 
 

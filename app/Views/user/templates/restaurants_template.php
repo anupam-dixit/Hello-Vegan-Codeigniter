@@ -19,7 +19,7 @@ $public_url_bower=base_url()."/public/";
 <link href="<?php echo $public_url;?>css/home_page.css" rel="stylesheet">
 <link href="<?php echo $public_url;?>css/responsive.css" rel="stylesheet">
 <link href="<?php echo $public_url;?>css/userme.css" rel="stylesheet">
-    <link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
+    <link href="<?=base_url()?>/public/khalid/css/custom.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel='stylesheet' href='<?php echo $public_url;?>css/owl.carousel.min.css'>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -335,7 +335,7 @@ $(document).ready(function() {
       
 function getSingleProduct(id){
   $.ajax({
-    url:'https://hello-vegans.com/user/get-single-product/'+id,
+    url:'/user/get-single-product/'+id,
     type:'GET',
     success:function(data){
       console.log(data);

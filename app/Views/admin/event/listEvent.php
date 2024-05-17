@@ -106,7 +106,7 @@
               
               <div class="modal-footer" style="width: 365px;">
                 
-                <button type="button" class="btn btn-primary" onclick="return delete_event('<?php echo site_url();?>','<?php echo $val['id'];?>');">Yes</button>
+                <a  class="btn btn-primary" href="/admin/event/delete-event/<?php echo $val['id'];?>">Yes</a>
 				<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
               </div>
             </div>

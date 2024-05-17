@@ -61,10 +61,10 @@ if(count($friend_request_send_by_me)!=0){
           <div class="proffilr_pb">
             <div class="right_mrnu">
               <ul>
-                <li><a href="#"> Post</a></li>
-                <li><a href="#"> Events</a></li>
-                <li><a href="#"> Recipes</a></li>
-                <li><a href="#"> Blog</a></li>
+                <li><a href="/user/blog_user"> Post</a></li>
+                <li><a href="/user/event_user"> Events</a></li>
+                <li><a href="/user/recipes_user"> Recipes</a></li>
+                <li><a href="/user/blog_user"> Blog</a></li>
               </ul>
             </div>
           </div>

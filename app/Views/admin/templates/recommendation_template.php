@@ -95,7 +95,7 @@ $public_url=base_url()."/public/";
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy;  <a href="http://acentriatech.com"> Acentria Technologies Pvt Ltd</a>.</strong> All rights
+    <strong>Copyright &copy;  <a href="#"> Hello Vegan</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -115,6 +115,7 @@ $public_url=base_url()."/public/";
  
 <!-- jQuery 3 -->
 <script src="<?php echo  $public_url;?>bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/public/khalid/js/script.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo  $public_url;?>bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

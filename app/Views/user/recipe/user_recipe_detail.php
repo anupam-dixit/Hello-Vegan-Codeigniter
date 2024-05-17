@@ -152,7 +152,7 @@ $baseurl=base_url()."/";
 
                       ?>
             <li>
-          <div class="commenterImage"> <img src="https://vegan.sidhauli.co.in/public/uploads/users/profileImage/1666126360Friends_list1.jpg"> </div>
+          <div class="commenterImage"> <img src="/public/uploads/users/profileImage/1666126360Friends_list1.jpg"> </div>
           <div class="commentText">
             <h2><?php echo $datas['users_name'];?></h2>
             <p class=""><?php echo $datas['message'];?>  </p>

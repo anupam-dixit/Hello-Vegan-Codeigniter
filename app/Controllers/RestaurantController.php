@@ -167,6 +167,7 @@ class RestaurantController extends BaseController
 	public function deleteReRestaurant($id){
 		$rm = new RestaurantsModel();
 		$rm->deleteReRestaurant($id);
+        return redirect()->back();
 	}
 	public function viewReRestaurant($id){
 		$rm = new RestaurantsModel();

@@ -532,7 +532,7 @@ public function getLatestBlogYearByUser($id,$month,$year) {
 	   $sql="select bp.*,bpc.id as category_name,bpc.name as category_name,u.name as user_name,u.email as user_email,u.mobile_no as user_phone, au.name as admin_user_name,au.email as admin_user_email from blog_posts bp
 		inner join blog_post_categories bpc on bpc.id=bp.post_category_id
 		left join users u on u.id=bp.posted_by
-		left join admin_users au on bp.posted_by=0 where  bp.status=1
+		left join admin_users au on bp.posted_by=0 where  bp.status=1 AND bp.deleted_at = 0
 		order by bp.id desc limit 0,1";
 		$query=$this->db->query($sql);
 		$result=$query->getResultArray();

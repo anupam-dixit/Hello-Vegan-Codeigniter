@@ -496,11 +496,19 @@ class UserModel extends Model{
 		$result[0]['id']='';
 		$result[0]['deleted_by']=0;
 		$result[0]['deleted_user_id']=$id;
-		$this->db->table('users_deleted')->insert($result[0]);
-		$deletesql="delete from users where id='".$id."'"; 
+        unset($result[0]['last_name']);
+        unset($result[0]['dob']);
+        unset($result[0]['city']);
+        unset($result[0]['pin_code']);
+        unset($result[0]['state']);
+        unset($result[0]['country']);
+        unset($result[0]['location']);
+        unset($result[0]['mobile_no']);
+        unset($result[0]['verificationCode']);
+//        die(json_encode($result[0]));
+		$t=$this->db->table('users_deleted')->insert($result[0]);
+		$deletesql="delete from users where id='".$id."'";
 		$query=$this->db->query($deletesql);
-		
-		
 	}
 
 	public function country($postdata){

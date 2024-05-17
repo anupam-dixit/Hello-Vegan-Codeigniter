@@ -84,7 +84,7 @@
               
 											  <div class="modal-footer" style="width: 365px;">
 												
-												<button type="button" class="btn btn-primary" onclick="return accept_event_post('<?php echo site_url();?>','<?php echo $val['id'];?>');">Yes</button>
+												<button type="button" class="btn btn-primary" onclick="location.href='/admin/event/approve-request/<?php echo $val['id'];?>'">Yes</button>
 												<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
 											  </div>
 											</div>

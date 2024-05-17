@@ -99,7 +99,7 @@
               
               <div class="modal-footer" style="width: 365px;">
                 
-                <button type="button" class="btn btn-primary" onclick="return delete_restaurant('<?php echo site_url();?>','<?php echo $val['id'];?>');">Yes</button>
+                <a href="/admin/recommendation/restaurant/delete-restaurant/<?php echo $val['id'];?>" class="btn btn-primary" >Yes</a>
 				<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
               </div>
             </div>

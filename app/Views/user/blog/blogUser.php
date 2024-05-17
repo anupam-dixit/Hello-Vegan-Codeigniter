@@ -1,6 +1,11 @@
 <?php 
 echo  $this->extend('user/templates/blog_template');
-echo  $this->section('content'); 
+echo  $this->section('content');
+function text_truncate($string, $n=5) {
+    $d= mb_substr($string, 0, $n);
+    $d.=(strlen($string)>=$n)?'...':null;
+    return $d;
+}
 ?> 
 
 	<main class="main-feed">
@@ -70,7 +75,7 @@ echo  $this->section('content');
 
             <div class="blog_images blog_mainimages_and_post"><a onclick="getSingleblog('<?php echo $latest_blog['id'];?>')"><img src="<?php echo ($latest_blog['image'])? base_url().'/'.$latest_blog['image']:'https://st3.depositphotos.com/23594922/31822/v/450/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg';?>"></a></div>
 
-          <div class="blog_titel"><h2><a onclick="getSingleblog('<?php echo $latest_blog['id'];?>')"><?php echo $latest_blog['title'];?></h2></div>
+          <div class="blog_titel"><h2><a onclick="getSingleblog('<?php echo $latest_blog['id'];?>')"><?php echo text_truncate($latest_blog['title'],10);?></h2></div>
             <div class="blog_date">
               <ul>
                 <li><a href="#"><?php echo date('d M Y ',strtotime($latest_blog['updated_at']));?></a></li>
@@ -80,8 +85,8 @@ echo  $this->section('content');
 
 
             <div class="date_event"></div>
-
-            <p><?php echo strip_tags(substr($latest_blog['content'],0,250)); ?></p>
+            <div><span class="badge bg-theme-primary-dark shadow-lg"><?php echo $latest_blog['category_name'];?></span> </div>
+            <p><?php echo text_truncate(strip_tags(substr($latest_blog['content'],0,250)),10); ?></p>
          
             <div class="read_more"> <a onclick="getSingleblog('<?php echo $latest_blog['id'];?>')">Read More</a> </div>
          
@@ -90,7 +95,7 @@ echo  $this->section('content');
         </div>
 		</div>
           <div class="blog_one_middel">
-            <a href="<?php echo base_url();?>/user/recipe"><h2>  Vegan  Recipes</h2></a>
+<!--            <a href="--><?php //echo base_url();?><!--/user/recipe"><h2>  Vegan  Recipes</h2></a>-->
             <div class="row">
         <?php
            foreach($blogRECIPES as $val){
@@ -123,8 +128,9 @@ echo  $this->section('content');
 
                   <div class="blog_images2"><a onclick="getSingleblog('<?php echo $val['id'];?>')"><img src="<?php echo ($val['image'])? base_url().'/'.$val['image']:'https://st3.depositphotos.com/23594922/31822/v/450/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg';?>"></a></div>
 
-                  <h2 class="hidding_one_middel"><a onclick="getSingleblog('<?php echo $val['id'];?>')"><?php echo $val['title'];?> </a></h2>
-                <div class="content_ptag">   <p><?php echo strip_tags($val['content']);?></p></div>
+                  <h2 class="hidding_one_middel"><a onclick="getSingleblog('<?php echo $val['id'];?>')"><?php echo $val['title'];?> </a> <span class="float-end badge bg-theme-primary-dark"><?=$val['category_name']?></span></h2>
+
+                <div class="content_ptag">   <p><?php echo text_truncate(strip_tags($val['content']));?></p></div>
                   <div class="read_more"> <a onclick="getSingleblog('<?php echo $val['id'];?>')">Read More</a> </div>
                  
                 </div>

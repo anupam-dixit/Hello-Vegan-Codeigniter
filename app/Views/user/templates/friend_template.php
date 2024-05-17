@@ -22,10 +22,15 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
+    <link href="<?=base_url()?>/public/khalid/css/custom.css" rel="stylesheet">
+    <script src="<?=base_url()?>/public/khalid/js/script.js"></script>
+
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
+<?php
+include $_SERVER['DOCUMENT_ROOT'].'/app/Views/user/preloader.php';
+?>
 <button class="icon-button e-dark-mode-button u-animation-click" id="darkMode" aria-label="Dark Mode"><span class="icon" aria-hidden="true">🌜</span></button>
 <div class="common-structure">
 <?php 

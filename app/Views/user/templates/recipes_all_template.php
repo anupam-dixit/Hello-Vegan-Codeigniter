@@ -27,7 +27,8 @@ $current_subscription = $sm->userActiveSubscription($session->get('idUserH'));
 <link href="<?php echo $public_url;?>css/home_page.css" rel="stylesheet">
 <link href="<?php echo $public_url;?>css/responsive.css" rel="stylesheet">
 <link href="<?php echo $public_url;?>css/userme.css" rel="stylesheet">
-    <link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
+    <link href="<?=base_url()?>/public/khalid/css/custom.css" rel="stylesheet">
+    <script src="<?=base_url()?>/public/khalid/js/script.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 <link rel='stylesheet' href='<?php echo base_url().'/public/frontend/';?>css/owl.carousel.min.css'>
@@ -48,7 +49,9 @@ $current_subscription = $sm->userActiveSubscription($session->get('idUserH'));
 
 </head>
 <body>
-
+<?php
+include $_SERVER['DOCUMENT_ROOT'].'/app/Views/user/preloader.php';
+?>
 
 
 <main>

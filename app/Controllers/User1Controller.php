@@ -2315,7 +2315,7 @@ echo $html;
 		if($send==1){
 		$email = \Config\Services::email();
         $to=$this->request->getPost('email');
-		$link="https://vegan.sidhauli.co.in/user/accountVerification?code=".$vcode;
+		$link="/user/accountVerification?code=".$vcode;
         $email->setTo($to);
         $email->setFrom('info@projectstatus.co.in', 'Confirm Registration');
         $subject="Account Verification from hello vegans";
@@ -2323,7 +2323,7 @@ echo $html;
 		          <tr>
 				     <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family:normal normal 600 40px/40px Open Sans; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
 					    <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Welcome!</h1> 
-						<img src="https://vegan.sidhauli.co.in/public/hello_vegans/commingsoon/images/logo.png" width="125" height="120" style="display: block; border: 0px;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;" />
+						<img src="/public/hello_vegans/commingsoon/images/logo.png" width="125" height="120" style="display: block; border: 0px;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;" />
 					</td>
 				  </tr>
 				  <tr>
@@ -2416,7 +2416,7 @@ echo $html;
 		   //send email
 		   $email = \Config\Services::email();
         $to=$this->request->getPost('email');
-		$link="https://vegan.sidhauli.co.in/user/accountVerification?code=".$rand;
+		$link="/user/accountVerification?code=".$rand;
         $email->setTo($to);
         $email->setFrom('info@projectstatus.co.in', 'Confirm Registration');
         $subject="Account Verification from hello vegans";
@@ -2424,7 +2424,7 @@ echo $html;
 		          <tr>
 				     <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family:normal normal 600 40px/40px Open Sans; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
 					    <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Welcome!</h1> 
-						<img src="https://vegan.sidhauli.co.in/public/hello_vegans/commingsoon/images/logo.png" width="125" height="120" style="display: block; border: 0px;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;" />
+						<img src="/public/hello_vegans/commingsoon/images/logo.png" width="125" height="120" style="display: block; border: 0px;border: 0;height: auto;line-height: 100%;outline: none;text-decoration: none;" />
 					</td>
 				  </tr>
 				  <tr>
@@ -2528,7 +2528,7 @@ echo $html;
 					return redirect()->to('/user/login');
 				}	
 			}else{
-			   $session->setFlashdata('msg', 'Please Verify Your email address if you did not get e-mail please click here to resend mail <br><a href="https://vegan.sidhauli.co.in/user/resendmail">click here</a>');
+			   $session->setFlashdata('msg', 'Please Verify Your email address if you did not get e-mail please click here to resend mail <br><a href="/user/resendmail">click here</a>');
 			   /* $session->setFlashdata('msg', 'Please Verify Your email address'); */
                return redirect()->to('/user/login');			   
 			}

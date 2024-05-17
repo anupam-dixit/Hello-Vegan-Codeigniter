@@ -18,10 +18,12 @@ $current_subscription = $sm->userActiveSubscription($session->get('idUserH'));
 echo base_url().'/public/frontend/';?>css/style.css" rel="stylesheet">
 <link href="<?php echo base_url().'/public/frontend/';?>css/home_page.css" rel="stylesheet">
 <link href="<?php echo base_url().'/public/frontend/';?>css/responsive.css" rel="stylesheet">
-<link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
+<link href="<?=base_url()?>/public/khalid/css/custom.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="<?=base_url()?>/public/khalid/css/custom.css" rel="stylesheet">
+
 
 <style>
 #owl-demo .item {
@@ -40,6 +42,9 @@ body {
 </style>
 </head>
 <body>
+<?php
+include $_SERVER['DOCUMENT_ROOT'].'/app/Views/user/preloader.php';
+?>
 <main>
   <button class="icon-button e-dark-mode-button u-animation-click" id="darkMode" aria-label="Dark Mode"><span class="icon" aria-hidden="true">🌜</span></button>
   <div class="common-structure"> <?php echo  $this->include('user/templates/common_left_menu_dashboard_template'); ?>
@@ -210,10 +215,8 @@ body {
                             <i class="fa fa-times"></i> <?=lang('app.global.reset_form')?>
                         </button>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col">
-                        <input type="submit" name="create" id="create" value="<?=lang('app.global.post')?>" class="create_button">
+                        <input type="submit" name="create" id="create" value="<?=lang('app.global.post')?>" class="btn bg-theme-primary-dark text-white">
                     </div>
                 </div>
             </form>
@@ -265,6 +268,8 @@ body {
 
 <script src='<?php echo base_url().'/public/frontend/';?>js/owl.carousel.min.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="<?=base_url()?>/public/khalid/js/script.js"></script>
+
 <script>
     function checkLimit() {
         var ispermitted=<?=($current_subscription->usage['post'] < $current_subscription->subscription->data->post)?'true':'false'?>;

@@ -184,31 +184,32 @@ if ($current_subscription->purchase){
                         <div class="card subs p-4">
                             <a href="/subscription/purchase/<?=$s->id?>/<?=session()->get('idUserH')?>">
                                 <div class="row align-items-center">
-                                    <div class="col-2">
+                                    <div class="col"></div>
+                                    <div class="col-2 text-center">
                                         <img src="<?=$s->icon?>" class="img-fluid">
                                     </div>
                                     <div class="col text-center">
-                                        <h2><?=$s->title?></h2>
-                                        <h5>
+                                        <h5 class="text-success"><?=$s->title?></h5>
+                                        <h6 class="h-75 text-primary">
                                             <?php
                                             $limits=json_decode($s->data)
                                             ?>
                                             <b><?=$limits->blog?> </b>Blog posts.
                                             <br>
                                             <b><?=$limits->recipe?> </b>Recipe.
-                                        </h5>
+                                        </h6>
                                     </div>
                                 </div>
                                 <div class="card-footer">
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <div class="" style="text-align: left">
-                                                <h2 class="text-success"><i class="fa-solid fa-dollar-sign me-5"></i><?=$s->price?></h2>
-                                                <h5 class="text-primary"> For <?=$s->validity?> days.</h5>
+                                                <h2 class="text-success text-center"><i class="fa-solid fa-dollar-sign me-5"></i><?=$s->price?></h2>
+                                                <h5 class="text-primary text-center"> For <?=$s->validity?> days.</h5>
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <div class="" style="text-align: right">
+                                            <div class="text-center" style="text-align: right">
                                                 <button style="background: green;color: white" class="w3-button w3-round-xxlarge">Buy <i class="fa-solid fa-angles-right"></i></button>
                                             </div>
                                         </div>

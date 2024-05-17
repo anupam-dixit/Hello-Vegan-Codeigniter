@@ -1,6 +1,11 @@
 <?php 
 echo  $this->extend('user/templates/blog_template');
 echo  $this->section('content');
+function text_truncate($string, $n=10) {
+    $d= mb_substr($string, 0, $n);
+    $d.=(strlen($string)>=$n)?'...':null;
+    return $d;
+}
  ?>
 	<main class="main-feed">
       <ul class="main-feed-list">
@@ -57,18 +62,23 @@ echo  $this->section('content');
     
 
             <div class="blog_images blog_mainimages_and_post"><a onclick="getSingleblog('<?php echo $latest_blog['id'];?>')"><img src="<?php echo base_url().'/'.$latest_blog['image'];?>"></a></div>
-
-         <div><h2><a href="<?php echo base_url();?>/user/blog/details/<?php echo $latest_blog['id'];?>"><?php echo $latest_blog['title'];?></h2></div>
+         <div>
+             <h2>
+                 <a href="<?php echo base_url();?>/user/blog/details/<?php echo $latest_blog['id'];?>">
+                 <?php echo text_truncate($latest_blog['title']);?>
+             </h2>
+         </div>
           
            
            <div class="blog_date">
               <ul>
                 <li><a href="#"><?php echo date('d M Y',strtotime($latest_blog['created_at']));?></a></li>
+                  <li><span class="badge bg-theme-primary-dark h2 float-end"><?php echo $latest_blog['category_name'];?></span></li>
             </ul>
             </div>
 
            <div class="date_event"></div>
-           <p><?php echo substr($latest_blog['content'],0,250) ?></p>
+           <p><?php echo text_truncate(substr($latest_blog['content'],0,250)) ?></p>
         
             <div class="read_more"> <a onclick="getSingleblog('<?php echo $latest_blog['id'];?>')">Read More</a> </div>
          
@@ -108,8 +118,11 @@ echo  $this->section('content');
                   <div class="blog_images2"><a onclick="getSingleblog('<?php echo $val['id'];?>')"><img src="<?php echo base_url().'/'.$val['image'];?>"></a></div>
 
             
-                  <h2 class="hidding_one_middel"><a onclick="getSingleblog('<?php echo $val['id'];?>')"><?php echo $val['title'];?> </a></h2>
-                  <p><?php echo $val['content'];?></p>
+                  <h2 class="hidding_one_middel"><a onclick="getSingleblog('<?php echo $val['id'];?>')"><?php echo text_truncate($val['title']);?> </a></h2>
+                    <div class="">
+                        <span class="badge bg-theme-primary-dark"><?php echo $latest_blog['category_name'];?></span>
+                    </div>
+                  <p><?php echo text_truncate($val['content']);?></p>
                   <div class="read_more"> <a onclick="getSingleblog('<?php echo $val['id'];?>')">Read More</a> </div>
                  
                 </div>

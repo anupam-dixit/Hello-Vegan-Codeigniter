@@ -26,13 +26,16 @@ $public_url_bower=base_url()."/public/";
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
       <script src="<?php echo  $public_url_bower;?>bower_components/ckeditor/ckeditor.js"></script>
-    <link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
+    <link href="<?=base_url()?>/public/khalid/css/custom.css" rel="stylesheet">
+    <script src="<?=base_url()?>/public/khalid/js/script.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-
+<?php
+include $_SERVER['DOCUMENT_ROOT'].'/app/Views/user/preloader.php';
+?>
 <main>
   <button class="icon-button e-dark-mode-button u-animation-click" id="darkMode" aria-label="Dark Mode"><span class="icon" aria-hidden="true">🌜</span></button>
   <div class="common-structure">
@@ -286,7 +289,7 @@ function getSingleProduct(id){
 
     function getSingleCooksbyID(id){
   $.ajax({
-    url:'https://hello-vegans.com/user/get-single-cook/'+id,
+    url:'/user/get-single-cook/'+id,
     type:'GET',
     success:function(data){
       console.log(data);

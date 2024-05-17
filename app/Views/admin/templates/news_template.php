@@ -94,7 +94,7 @@ $public_url=base_url()."/public/";
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy;  <a href="http://acentriatech.com"> Acentria Technologies Pvt Ltd</a>.</strong> All rights
+    <strong>Copyright &copy;  <a href="#"> Hello Vegan</a>.</strong> All rights
     reserved.
   </footer>
 

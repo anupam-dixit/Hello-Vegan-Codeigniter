@@ -23,7 +23,7 @@
 <link href="<?php echo base_url().'/public/frontend/';?>css/home_page.css" rel="stylesheet">
 <link href="<?php echo base_url().'/public/frontend/';?>css/responsive.css" rel="stylesheet">
 <link href="<?php echo base_url().'/public/frontend/';?>css/userme.css" rel="stylesheet">
-    <link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
+    <link href="<?=base_url()?>/public/khalid/css/custom.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 <link rel='stylesheet' href='<?php echo base_url().'/public/frontend/';?>css/owl.carousel.min.css'>
@@ -83,6 +83,9 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
+<?php
+include $_SERVER['DOCUMENT_ROOT'].'/app/Views/user/preloader.php';
+?>
 <main>
   <button class="icon-button e-dark-mode-button u-animation-click" id="darkMode" aria-label="Dark Mode"><span class="icon" aria-hidden="true">🌜</span></button>
   <div class="common-structure">
@@ -328,6 +331,8 @@ function initMap() {
 
 <script src="<?php echo base_url();?>/public/frontend/js/jquery.marquee.js"></script>
 <script src="<?php echo base_url();?>/public/frontend/js/jquery.marquee.min.js"></script>
+<script src="<?=base_url()?>/public/khalid/js/script.js"></script>
+
 <script type="text/javascript">
 
     $(document).ready(function () {
@@ -496,7 +501,7 @@ function hidepopup(){
 
 function getSingleblog(id){
   $.ajax({
-    url:'https://hello-vegans.com/user/get-single-blog/'+id,
+    url:'/user/get-single-blog/'+id,
     type:'GET',
     success:function(data){
       console.log(data);
@@ -511,7 +516,8 @@ function getSingleblog(id){
   }
 
 function hidepopup(){
-      $("#showmodel").css('display','none');
+          $(".modal").modal('hide')
+      // $("#showmodel").css('display','none');
 }     
 function submitEventForm(){}  
  

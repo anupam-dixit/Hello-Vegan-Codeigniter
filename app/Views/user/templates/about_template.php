@@ -8,7 +8,8 @@ $public_url=base_url()."/public/frontend/";
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
+    <link href="<?=base_url()?>/public/khalid/css/custom.css" rel="stylesheet">
+    <script src="<?=base_url()?>/public/khalid/js/script.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>Hello-Vegans</title>
 <?php
@@ -114,6 +115,9 @@ img {
   height: auto;
 } */ </style>
 <body>
+<?php
+include $_SERVER['DOCUMENT_ROOT'].'/app/Views/user/preloader.php';
+?>
       <?= $this->renderSection('content') ?>
 <?php echo  $this->include('user/templates/chat_template'); ?>
 

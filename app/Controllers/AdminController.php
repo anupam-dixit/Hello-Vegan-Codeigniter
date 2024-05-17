@@ -31,7 +31,7 @@ class AdminController extends BaseController
 		$data['pending_request_events'] =$em->getEventRequest();
 		$rm= new ReceipeModel();
 		$data['pending_request_receipes'] =$rm->user_recipe_request();
-		
+//		die(json_encode($data));
 		return view('admin/dashboard/index',$data);	
 	}
 	public function frontUserFriendPosts($id){
@@ -204,7 +204,11 @@ class AdminController extends BaseController
 	
 	public function deleteUser($id){
 		$users = new UserModel();
-		$users->deleteUser($id);
+        try {
+            $users->deleteUser($id);
+        } catch (\Exception $exception){
+            echo  $exception->getMessage();
+        }
 	}
 
 }

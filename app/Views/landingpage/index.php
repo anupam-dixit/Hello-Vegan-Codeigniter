@@ -35,7 +35,7 @@ $baseurl=base_url()."/public/landingpage/";
 
     <!-- Template Stylesheet -->
     <link href="<?php echo $baseurl;?>css/style.css" rel="stylesheet">
-    <link href="/public/pitesh/css/custom.css" rel="stylesheet">
+    <link href="/public/khalid/css/custom.css" rel="stylesheet">
 </head>
 
 <body>
@@ -280,7 +280,7 @@ $baseurl=base_url()."/public/landingpage/";
                 <div class="row">
                     <div class="col-md-7 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a class="border-bottom" href="#">Hello Vegans</a>, All Right Reserved.
-                         Designed By <a class="border-bottom" href="https://www.acentriatech.com/"> Acentria Technologies Pvt ltd</a>
+                         Designed By <a class="border-bottom" href="https://www.acentriatech.com/"> Hello Vegan</a>
                     </div>
                     <div class="col-md-5 text-center text-md-end">
                         <div class="footer-menu">
@@ -315,6 +315,40 @@ $baseurl=base_url()."/public/landingpage/";
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 </body>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QB0C51JNRM"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QB0C51JNRM');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5HGQSW7M');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HGQSW7M"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script type="text/javascript">
+    _linkedin_partner_id = "6163036";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+    (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+            window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+
 <script>
 function redirect_url(urls){;
 	window.location.href =urls;

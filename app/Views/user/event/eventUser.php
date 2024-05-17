@@ -232,12 +232,8 @@ return $truncate;
       </div>
       <div class="modal-body">
        <div class="row" style="margin-right: 0;margin-left: 0;">
-
-
               <!--col-sm-6-->
-
               <div class="col-md-12 col-sm-6 col--12 right-side">
-
               <?php if(session()->getFlashdata('msgevent')):?>
                     <div class="alert alert-success">
                        <p><?= session()->getFlashdata('msgevent') ?></p>
@@ -270,7 +266,7 @@ return $truncate;
                   </div>
                   <div class="form-group">
                     <label>Location</label>
-					<input type="text" id="location" name="location" class="form_control_event" placeholder="Event Location" >
+					<input type="text" id="location_" name="location" class="form_control_event" placeholder="Event Location" >
                   </div>
 				  <div class="form-group">
 				  <label>Event Start Date</label>

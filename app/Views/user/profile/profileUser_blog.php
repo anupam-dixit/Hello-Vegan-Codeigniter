@@ -106,7 +106,7 @@ $location=$users['location'];
                 </div>
                 <div class="col-md-3">
                   <div class="profile-button-actions my-15">
-				  <a class="btn-floating" onclick="createpostpopup_open()">
+				  <a href="/user/dashboard" class="btn-floating" onclick="/*createpostpopup_open()*/">
                     <div class="after-span ripple"></div>
                     <span> </span> Add  Post</a>
 

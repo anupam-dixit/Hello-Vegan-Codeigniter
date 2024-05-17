@@ -77,7 +77,8 @@ class ProductController extends BaseController
 	}
     public function listReProducts(){
 		$rm = new ProductModel();
-		$data['reproducts']=$rm->getAllReProducts();
+//		$data['reproducts']=$rm->getAllReProducts();
+		$data['reproducts']=$rm->getAllPost();
 		return view('admin/recommendation/listReProducts',$data);
 	}
 	public function addReProduct(){

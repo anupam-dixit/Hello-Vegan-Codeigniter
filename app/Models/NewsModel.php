@@ -80,7 +80,8 @@ where news_post_categories.deleted_at=0 and news_posts.deleted_at=0
 		$sql="select np.*,npc.name as category_name,u.name as user_name,u.email as user_email,u.mobile_no as user_phone,au.name as au_user_name,au.email as au_user_email from news_posts np 
 		inner join news_post_categories npc on npc.id=np.post_category_id 
         left join users u on u.id=np.posted_by
-        left join admin_users au on np.posted_by=0	
+        left join admin_users au on np.posted_by=0
+        where np.deleted_at=0
 		order by np.id desc limit 0,1";
 
 		$query=$this->db->query($sql);
@@ -411,7 +412,7 @@ where news_post_categories.deleted_at=0 and news_posts.deleted_at=0
 	    inner join news_post_categories npc on npc.id=np.post_category_id 
 		left join users u on u.id=np.posted_by
 		left join  admin_users as au on np.posted_by=0 
-		where np.post_category_id=6
+		where np.post_category_id=6 and np.deleted_at=0
 		order by np.id desc limit 0,1"; 
 		
 
@@ -430,7 +431,7 @@ where news_post_categories.deleted_at=0 and news_posts.deleted_at=0
 	    inner join news_post_categories npc on npc.id=np.post_category_id 
 		left join users u on u.id=np.posted_by
 		left join  admin_users as au on np.posted_by=0 
-		where np.post_category_id=3
+		where np.post_category_id=3 and np.deleted_at=0
 		order by np.id desc limit 0,1"; 
 		
 
@@ -502,7 +503,7 @@ public function getAllPost(){
 	}
 
 	public function getAllPostByUser(){
-		$sql="select np.*,npc.name as category_name from news_posts np inner join news_post_categories npc on npc.id=np.post_category_id where  np.deleted_at=0 order by np.id desc limit 0,2"; 
+		$sql="select np.*,npc.name as category_name from news_posts np inner join news_post_categories npc on npc.id=np.post_category_id where  np.deleted_at=0 order by np.id desc limit 0,200";
 		$query=$this->db->query($sql);
 		$result=$query->getResultArray();
 		return $result;

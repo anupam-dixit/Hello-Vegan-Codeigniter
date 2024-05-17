@@ -8,7 +8,7 @@ class ProductModel extends Model{
 
 
 	public function getAllPost(){
-		$sql="select * from product  where  product.deleted_at=0"; 
+		$sql="select *,(select name from product_categories where id=product_category_id) as category_name from product  where  product.deleted_at=0";
 		$query=$this->db->query($sql);
 		$result=$query->getResultArray();
 		return $result;
@@ -148,7 +148,7 @@ class ProductModel extends Model{
 	public function getAllReProducts(){
 		$sql="select u.name as user_name,u.email as user_email,u.mobile_no as user_phone,ru.*,rc.name as category_name from product ru inner join product_categories rc on rc.id=ru.product_category_id 
 		left join users u on u.id=ru.posted_by
-		where ru.deleted_at=0 order by ru.id desc"; 
+		where ru.deleted_at=0 order by ru.id desc";
 		$query=$this->db->query($sql);
 		$result=$query->getResultArray();
 		return $result;

@@ -104,6 +104,7 @@ class EventController extends BaseController
 	public function deleteEvent($id){
 		$rm = new EventModel();
 		$rm->deleteEvent($id);
+        return redirect()->back();
 	}
 	public function declineEventRequest($id){
 		$rm = new EventModel();
@@ -112,6 +113,7 @@ class EventController extends BaseController
 	public function approveEventRequest($id){
 		$rm = new EventModel();
 		$rm->approveEventRequest($id);
+        return redirect()->back();
 	}
 	public function viewEvent($id){
 		$rm = new EventModel();

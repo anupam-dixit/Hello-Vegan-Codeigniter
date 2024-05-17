@@ -21,7 +21,8 @@
 <link href="<?php echo base_url().'/public/frontend/';?>css/home_page.css" rel="stylesheet">
 <link href="<?php echo base_url().'/public/frontend/';?>css/responsive.css" rel="stylesheet">
 <link href="<?php echo base_url().'/public/frontend/';?>css/userme.css" rel="stylesheet">
-    <link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
+    <link href="<?=base_url()?>/public/khalid/css/custom.css" rel="stylesheet">
+    <script src="<?=base_url()?>/public/khalid/js/script.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 <link rel='stylesheet' href='<?php echo base_url().'/public/frontend/';?>css/owl.carousel.min.css'>
@@ -35,6 +36,8 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel='stylesheet' href='<?php echo base_url().'/public/frontend/';?>css/owl.carousel.min.css'>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
    <style> #owl-demo .item{
   margin: 3px;
 }
@@ -44,37 +47,40 @@
 }  </style>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
       <script src="<?php echo  base_url().'/public/';?>bower_components/ckeditor/ckeditor.js"></script>
-      
+
 </head>
 <body>
-<main>
+<?php
+include $_SERVER['DOCUMENT_ROOT'].'/app/Views/user/preloader.php';
+?>
+<main class="d-none">
   <button class="icon-button e-dark-mode-button u-animation-click" id="darkMode" aria-label="Dark Mode"><span class="icon" aria-hidden="true">🌜</span></button>
   <div class="common-structure">
- <?php echo  $this->include('user/templates/common_left_menu_dashboard_template'); ?> 
+ <?php echo  $this->include('user/templates/common_left_menu_dashboard_template'); ?>
 
 <?php echo  $this->renderSection('content') ?>
 <aside class="side-b">
 
       <section class="common-section user_right_homepage">
         <div class="notfy">
-          <?php 
+          <?php
     echo  $this->include('user/templates/show_logout'); ?>
         </div>
       </section>
-    
+
        <section class="common-section">
         <h2 class="section-title"><?=lang('app.global.category')?></h2>
 		<div class="blog_sidebar">
           <ul>
             <?php
-			
+
       foreach($blog_category as $cats){
 		  $month=$cats['BlogMonth'];
 		  $monthname=$cats['BlogMonthName'];
 		  $year=$cats['BlogYear'];
       ?>
       <li><a href="<?php echo base_url();?>/user/blog/category/<?php echo $month;?>/<?php echo $year; ?>"><?php echo $monthname.' '.$year;?></a></li>
-            <?php 
+            <?php
       }
       ?>
           </ul>
@@ -84,7 +90,7 @@
         <h2 class="section-title"><?=lang('app.profile.events')?></h2>
         <div class="comment_all">
           <ul class="common-list">
-            <?php 
+            <?php
     if(count($events)!=0){
       foreach($events as $newsval){
     ?>
@@ -98,7 +104,7 @@
                 <div class="going_p"> <span > <?php echo $newsval['event_attend'];?> Going </span> </div>
               </div>
               </a> </li>
-            <?php 
+            <?php
       }
     }
      ?>
@@ -106,13 +112,14 @@
           <button class="common-more">
           <a href="<?php echo base_url();?>/user/event"><span class="text"><?=lang('app.global.see_more')?></a></span>
           </button>
-          
+
         </div>
       </section>
-         <section class="common-section ">
+         <section class="common-section bg-theme-primary-dark" style="background: var(--primary_medium) !important">
         <h2 class="section-title">News</h2>
         <ul class="common-list marquee">
-          <?php 
+          <?php
+
         if(count($newsall)!=0){
             foreach($newsall as $newsval){
         ?>
@@ -123,7 +130,7 @@
               <p class="ads-url"><?=lang('app.global.see_more')?> </p>
             </div>
             </a> </li>
-          <?php 
+          <?php
             }
         }
          ?>
@@ -136,7 +143,7 @@
      </div>
   <?php echo  $this->include('user/templates/footer_template'); ?>
 </main>
- <span id="showmodel" style="display:none"></span>  
+ <span id="showmodel" style="display:none"></span>
 <div class="modal fade" id="addBlogModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
   <form onsubmit="return checkLimit()" action="<?php echo base_url('user/blog/insert-blog');?>" method="post" enctype="multipart/form-data" id="blogForm" name="blogForm">
@@ -146,64 +153,64 @@
       </div>
       <div class="modal-body">
        <div class="row" style="margin-right: 0;margin-left: 0;">
-            
-              
+
+
               <!--col-sm-6-->
-              
+
               <div class="col-md-12 col-sm-6 col--12 right-side">
-              
+
               <?php if(session()->getFlashdata('msgblog')):?>
                     <div class="alert alert-success">
                        <p><?= session()->getFlashdata('msgblog') ?></p>
                     </div>
       <?php endif;?>
-          
-                 
+
+
                 <!--Form with header-->
                 <div class="form">
-				
- 
+
+
 				  <div class="form-group">
 				   <label>Title</label>
                     <input type="hidden" id="video" name="video" class="form_control_event" placeholder="Video" >
                     <input type="text" id="title" name="title" class="form_control_event" placeholder="Title" >
                   </div>
 
-                
+
 
                 <div class="form-group">
             <label><?=lang('app.global.category')?></label>
-              
+
                   <select name="post_category_id" class="form_control_event form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                   <option >Select Category</option>
-          <?php 
+          <?php
           foreach($categories as $val){
             ?>
-          <option  
+          <option
           value="<?php echo $val['id'];?>"><?php echo $val['name'];?></option>
                   <?php
-                  }         
-                  ?>          
-          
+                  }
+                  ?>
+
                 </select>
                 </div>
 
                 <div class="form-group">
                  <label>Tags</label>
-                   
+
                     <input type="text" id="tags" name="tags" class="form_control_event" placeholder="Tags" >
                   </div>
 
-              
+
 
 
 
 
                   <div class="form-group">
                     <label>Location</label>
-					<input type="text" id="location" name="location" class="form_control_event" placeholder="Location" >
+					<input type="text" id="location_" name="location" class="form_control_event" placeholder="Location" >
                   </div>
-				  
+
 				  <div class="form-group">
 				  <label>Image</label>
                     <input type="file" id="image" name="image" class="form_control_event" placeholder="Image" >
@@ -225,25 +232,25 @@
 				  <label>Details</label>
                     <textarea  id="detail"  name="detail" class="form_control_event" placeholder="Description"></textarea>
                   </div>
-       
-            
-             
-     
 
-                  <div class="text-xs-center"> 
+
+
+
+
+                  <div class="text-xs-center">
 				 <a  class="btn loginbutton "> <input style="background:none;border:none;color:#fff" type="submit" name="submit" id="submit" value="Submit"><span>
 				    <img style="display:inline" src="<?php echo base_url().'/public/frontend/';?>images/back_arrow.svg" alt="img">
 				  </span></a>
 				  </div>
-			
-                  
+
+
                 </div>
-                <!--/Form with header--> 
-                
+                <!--/Form with header-->
+
               </div>
               <!--col-sm-6-->
-              
-             
+
+
             </div>
       </div>
       <div class="modal-footer">
@@ -256,7 +263,7 @@
 </div>
 <div class="modal fade" id="myModal2" role="dialog">
     <div class="modal-dialog modal-sm">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -265,14 +272,14 @@
         </div>
         <div class="modal-body">
                  <div id="ErrorMessage" style="text-align:center;margin-bottom:13px;">
-                     
+
                 </div>
          </div>
         <div class="modal-footer">
           <button type="button" onclick="location.reload()" class="sumbit_event close_event" data-dismiss="modal"><?=lang('app.global.close')?></button>
         </div>
       </div>
-      
+
     </div>
   </div>
   <div id="loader"></div>
@@ -318,7 +325,7 @@
     </div>
 </div>
 
-<script src='<?php echo base_url().'/public/frontend/';?>js/owl.carousel.min.js'></script> 
+<script src='<?php echo base_url().'/public/frontend/';?>js/owl.carousel.min.js'></script>
 <script>
     /*JS isn't my expertise 😉*/
 function checkLimit() {
@@ -337,10 +344,10 @@ $(document).ready(function() {
         $("html").toggleClass("is-dark");
     });
 });
-    
-    
-    
-    </script> 
+
+
+
+    </script>
 <script>
       $('.home_silder1').owlCarousel({
     loop:true,
@@ -362,28 +369,28 @@ $(document).ready(function() {
 });
 
       $(document).ready(function() {
- 
+
   $("#owl-demo").owlCarousel({
- 
+
       autoPlay: 3000, //Set AutoPlay to 3 seconds
- 
+
       items : 4,
       itemsDesktop : [1199,3],
       itemsDesktopSmall : [979,3]
- 
+
   });
- 
+
 });
 
 
-      
+
 function getSingleblog(id){
   $.ajax({
     url:'<?php echo base_url();?>/user/get-single-blog/'+id,
     type:'GET',
     success:function(data){
       console.log(data);
-	  
+
       $("#showmodel").css('display','block');
       $("#showmodel").html(data);
       $('#add_custom_blog').modal('show');
@@ -409,9 +416,9 @@ function getSingleblog(id){
 });
     },
     error:function(e){
-      
+
     }
-  }); 
+  });
   }
 
   function getSinglerecipes(id){
@@ -425,9 +432,9 @@ function getSingleblog(id){
       $('#add_custom_blog').modal('show');
     },
     error:function(e){
-      
+
     }
-  }); 
+  });
   }
 
 
@@ -440,11 +447,11 @@ function hidepopup(){
  jQuery("#blogForm").submit('on',function(e){
 	var detail = CKEDITOR.instances['detail'].getData();
 	 $("#detail").val(detail);
-	 
+
 					e.preventDefault();
 					spinner.show();
 					jQuery('#ErrorMessage').html('');
-					
+
 					var form = $('#blogForm')[0];
 					var form_data = new FormData(form);
 			     	jQuery.ajax({
@@ -479,14 +486,14 @@ function hidepopup(){
 						spinner.hide();
 						  jQuery('#ErrorMessage').html("Local error callback.");
  					  }
-				
+
 					});
-					//} //else	
-					
-					
+					//} //else
+
+
 });
       </script>
-      
+
 <script>
  $(function () {
     CKEDITOR.replace('detail')
@@ -508,13 +515,13 @@ function showoldercomments(id){
 		 $('.commentList').append(data);
 		 $('.commentList').css({"overflow-y": "scroll", "height": "300px", "width": "100%"});
 		  return false;
-    
+
       },
-     error: function(e) 
+     error: function(e)
       {
 		  $('#loading').hide();
 
-      }          
+      }
     });
 }
 
@@ -538,23 +545,23 @@ function submitblogcomments(){
    },
    success: function(data)
       {
-		 
+
 		  // alert('Comments submit');
 		 $('.commentList').prepend(data);
 		  //$('#aftercomments').html(data);
-		 
+
 		  document.getElementById('messagecomments').value='';
 		 //$(".commentList").animate({ scrollTop: $(".commentList")[0].scrollHeight}, 1000);
 		 $(".commentList").animate({ scrollTop: 0}, 1000);
-		 
+
 		  return false;
-    
+
       },
-     error: function(e) 
+     error: function(e)
       {
 		  $('#loading').hide();
 
-      }          
+      }
     });
 
 }
@@ -569,14 +576,14 @@ function getSingleEvent(id){
             $('#add_custom_blog').modal('show');
         },
         error:function(e){
-            
+
         }
-    }); 
+    });
     }
-	
-	
-	
- 
+
+
+
+
 
 </script>
 <style>
@@ -623,11 +630,11 @@ div.pac-container {
   transform: translate3d(-460px, 0px, 0px);
     transition: all 0s ease 0s;
 
-    
+
 }
  </style>
- 	
-  
+
+
   <?php
 $key="AIzaSyBlf2VfOx5bL5rwlTP4hG5luZxZaLV6xEI";
 $googleWeb="https://maps.googleapis.com/maps/api/js";
@@ -653,7 +660,7 @@ function initMap() {
             duplicated: true,
 			pauseOnHover:true
         });
-		
+
     });
 function submitEventcomments(id){
   const form = document.querySelector('#postcommentform_'+id);
@@ -676,7 +683,7 @@ function submitEventcomments(id){
    },
    success: function(data)
       {
-     
+
      // alert('Comments submit');
      $('.commentList_'+id).prepend(data);
      var cnts=parseInt($("#cnt_"+id).html());
@@ -685,13 +692,13 @@ function submitEventcomments(id){
       document.getElementById('messagecomments_'+id).value='';
      $(".commentList"+id).animate({ scrollTop: 0}, 1000);
       return false;
-    
+
       },
-     error: function(e) 
+     error: function(e)
       {
       $('#loading').hide();
 
-      }          
+      }
     });
   return false;
 

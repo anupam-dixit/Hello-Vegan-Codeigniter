@@ -66,30 +66,31 @@ $baseurl=base_url()."/";
   transform: translate3d(-460px, 0px, 0px);
     transition: all 0s ease 0s;
 
-    
+
 }
 /*#owl-demo .item img{
   display: block;
   width: 100%;
   height: auto;
 } */ </style>
-    <link href="<?=base_url()?>/public/pitesh/css/custom.css" rel="stylesheet">
+    <link href="<?=base_url()?>/public/khalid/css/custom.css" rel="stylesheet">
+    <script src="<?=base_url()?>/public/khalid/js/script.js"></script>
 </head>
 <body>
 
-     
+
 
 <main>
   <button class="icon-button e-dark-mode-button u-animation-click" id="darkMode" aria-label="Dark Mode"><span class="icon" aria-hidden="true">🌜</span></button>
   <div class="common-structure">
-   <?php echo  $this->include('user/templates/common_left_menu_dashboard_template'); ?> 
+   <?php echo  $this->include('user/templates/common_left_menu_dashboard_template'); ?>
 
       <?php echo  $this->renderSection('content') ?>
 
           <aside class="side-b">
 		  <section class="common-section user_right_homepage">
         <div class="notfy">
-       <?php 
+       <?php
 	  echo  $this->include('user/templates/show_logout'); ?>
 	</div>
     </section>
@@ -97,21 +98,21 @@ $baseurl=base_url()."/";
         <div class="comment_all">
 		 <h2 class="section-title">Topic </h2>
 		<div class="blog_sidebar">
-		
-		
+
+
 		<ul>
-           
+
             <?php
       foreach($receipe_category as $cats){
       ?>
 
 
-            <li><a href="<?php echo base_url();?>/user/recipe/category/<?php echo $cats['id'];?>"><?php echo $cats['name'];?></a></li> 
+            <li><a href="<?php echo base_url();?>/user/recipe/category/<?php echo $cats['id'];?>"><?php echo $cats['name'];?></a></li>
            <!--  <li><a href="<?php echo base_url();?>/user/userrecipelist/category/<?php echo $cats['id'];?>"><?php echo $cats['name'];?></a></li> -->
-            <?php 
+            <?php
       }
       ?>
-           
+
           </ul>
         </div>
         </div>
@@ -120,7 +121,7 @@ $baseurl=base_url()."/";
         <h2 class="section-title">Events</h2>
         <div class="comment_all">
           <ul class="common-list">
-            <?php 
+            <?php
     if(count($events)!=0){
       foreach($events as $newsval){
     ?>
@@ -134,7 +135,7 @@ $baseurl=base_url()."/";
                 <div class="going_p"> <span > <?php echo $newsval['event_attend'];?> Going </span> </div>
               </div>
               </a> </li>
-            <?php 
+            <?php
       }
     }
      ?>
@@ -142,68 +143,8 @@ $baseurl=base_url()."/";
           <button class="common-more">
           <a href="<?php echo base_url();?>/user/event"><span class="text">See More</a></span>
           </button>
-          <!-- <h2 class="section-title">Events</h2>
-         <div class="events">
-         <div class="events_images">
-     <?php 
-             if(count($event_latest)!=0){
-      ?>
-      <a href="<?php echo base_url();?>/user/event"><img src="<?php echo base_url().'/'.$event_latest['image'];?>"></a>
-            <?php       
-       }else{
-        ?> 
-      <img src="<?php echo base_url().'/public/frontend/';?>images/events_images.jpg">  
-       <?php
-       }
-      ?>
-         
-         <div class="live_text">
-         <div class="live_bg">
-         <div class="live_left">
-         <h2>Live</h2>
-         <h3><i class="fa fa-users" aria-hidden="true"></i> 3K People</h3></div>
-         <div class="live_right">
-         <a href="#"><img src="<?php echo base_url().'/public/frontend/';?>images/share.png"></a>
-         <a href="#"><img src="<?php echo base_url().'/public/frontend/';?>images/close.png"></a>
-         </div>
-         </div>
-         </div>
-         
-         </div> --> 
-          
-          <!--      <div class="commnet_events">
-       <ul class="commentList_<?php echo $event_latest['id'];?>">
- <?php 
-            if(count($event_comment)!=0){
-      foreach($event_comment as $comment){
-      if($comment['users_profile_image']==''){
-        $imagesrc=base_url().'/public/frontend/images/f_icon_user.jpg';
-      }else{
-       $imagesrc=base_url()."/".$comment['users_profile_image']; 
-      }
-      ?>
 
-         <li><span><img src="<?php echo $imagesrc ;?>"></span><p><?php echo $comment['message'];?></p> <div class="time_commnet"><?php echo date('h:i ',strtotime($comment['created_at']));?></div></li>
 
-  <?php 
-      }
-    }
-     ?> 
-  </ul>
-         <div class="comment_input">
-         <div class="search-box-wrapper">
-          <form class="form-inline" role="form" method="post" id="postcommentform_<?php echo $event_latest['id'];?>" name="postcommentform" onsubmit="return submitEventcomments('<?php echo $event_latest['id'];?>')">
-           <input type="hidden" class="" id="commented_by"  name="commented_by"  value="<?php echo $_SESSION['idUserH'];?>" size="30" aria-required="true">
-                  <input type="hidden" class="" id="post_id" name="post_id"  value="<?php echo $event_latest['id'];?>" size="30" aria-required="true">
-
-            <input type="search" name="message" id="messagecomments_<?php echo $event_latest['id'];?>" class="search-box" placeholder="Comment">
-             <span class="icon-search" aria-label="hidden"><img src="<?php echo base_url().'/public/frontend/';?>images/chat_input.png"></span> 
-                <span class="focus-border" onclick="submitEventcomments('<?php echo $event_latest['id'];?>')"></span>
-          </form> 
-        </div>
-       </div>
-         </div> --> 
-          
         </div>
       </section>
     </aside>
@@ -234,15 +175,15 @@ $baseurl=base_url()."/";
 
 </main>
 
- 
+
 
 
 
 <!--<script src="--><?php //echo $public_url;?><!--js/bootstrap.min.js"></script> -->
-<script src='<?php echo base_url().'/public/frontend/';?>js/owl.carousel.min.js'></script> 
+<script src='<?php echo base_url().'/public/frontend/';?>js/owl.carousel.min.js'></script>
 
 <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
-<script src="owl-carousel/owl.carousel.js"></script> 
+<script src="owl-carousel/owl.carousel.js"></script>
 <script>
     /*JS isn't my expertise 😉*/
 $(document).ready(function() {
@@ -254,11 +195,11 @@ $(document).ready(function() {
         $("html").toggleClass("is-dark");
     });
 });
-    
-    
-    
-    </script> 
-	<script src='<?php echo $public_url;?>js/owl.carousel.min.js'></script> 
+
+
+
+    </script>
+	<script src='<?php echo $public_url;?>js/owl.carousel.min.js'></script>
 <script>
       $('.home_silder1').owlCarousel({
     loop:true,
@@ -299,23 +240,23 @@ $(document).ready(function() {
    },
    success: function(data)
       {
-         
+
           alert('Comments submit');
          $('.commentList').prepend(data);
           //$('#aftercomments').html(data);
-         
+
           document.getElementById('messagecomments').value='';
          //$(".commentList").animate({ scrollTop: $(".commentList")[0].scrollHeight}, 1000);
          $(".commentList").animate({ scrollTop: 0}, 1000);
-         
+
           return false;
-    
+
       },
-     error: function(e) 
+     error: function(e)
       {
           $('#loading').hide();
 
-      }          
+      }
     });
 
 }
@@ -341,37 +282,37 @@ $(document).ready(function() {
    },
    success: function(data)
       {
-         
+
           alert('Comments submit');
          $('.commentList').prepend(data);
           //$('#aftercomments').html(data);
-         
+
           document.getElementById('messagecomments').value='';
          //$(".commentList").animate({ scrollTop: $(".commentList")[0].scrollHeight}, 1000);
          $(".commentList").animate({ scrollTop: 0}, 1000);
-         
+
           return false;
-    
+
       },
-     error: function(e) 
+     error: function(e)
       {
           $('#loading').hide();
 
-      }          
+      }
     });
 
 }
-      
+
 
 
 
 
 function hidepopup(){
       $("#showmodel").css('display','none');
-}     
+}
  </script>
 
-      
+
 
 <style>
 div.pac-container {
@@ -411,7 +352,7 @@ function initMap() {
 					e.preventDefault();
 					spinner.show();
 					jQuery('#ErrorMessage').html('');
-					
+
 					var form = $('#ReceipeeForm')[0];
 					var form_data = new FormData(form);
 			     	jQuery.ajax({
@@ -446,11 +387,11 @@ function initMap() {
 						spinner.hide();
 						  jQuery('#ErrorMessage').html("Local error callback.");
  					  }
-				
+
 					});
-					//} //else	
-					
-					
+					//} //else
+
+
 });
 
  function getSinglerecipes(id){
@@ -464,14 +405,14 @@ function initMap() {
       $('#add_custom_blog').modal('show');
     },
     error:function(e){
-      
+
     }
-  }); 
+  });
   }
- 
+
 
     function getSinglerecipesall(id){
-      
+
   $.ajax({
     url:'<?php echo base_url();?>/user/user-recipe-single/'+id,
     type:'GET',
@@ -502,9 +443,9 @@ function initMap() {
 });
     },
     error:function(e){
-      
+
     }
-  }); 
+  });
   }
 
   function submitrecipecomments(){
@@ -527,23 +468,23 @@ function initMap() {
    },
    success: function(data)
       {
-		 
+
 		  // alert('Comments submit');
 		 $('.commentList').prepend(data);
 		  //$('#aftercomments').html(data);
-		 
+
 		  document.getElementById('messagecomments').value='';
 		 //$(".commentList").animate({ scrollTop: $(".commentList")[0].scrollHeight}, 1000);
 		 $(".commentList").animate({ scrollTop: 0}, 1000);
-		 
+
 		  return false;
-    
+
       },
-     error: function(e) 
+     error: function(e)
       {
 		  $('#loading').hide();
 
-      }          
+      }
     });
 
 }
@@ -563,13 +504,13 @@ function showoldercomments(id){
          $('.commentList').append(data);
          $('.commentList').css({"overflow-y": "scroll", "height": "300px", "width": "100%"});
           return false;
-    
+
       },
-     error: function(e) 
+     error: function(e)
       {
           $('#loading').hide();
 
-      }          
+      }
     });
 }
 
@@ -577,7 +518,7 @@ function showoldercomments(id){
 
 
 </script>
-<script src="<?php echo  $public_url_bower;?>bower_components/ckeditor/ckeditor.js"></script>  
+<script src="<?php echo  $public_url_bower;?>bower_components/ckeditor/ckeditor.js"></script>
 <script>
  $(function () {
     CKEDITOR.replace('detail')

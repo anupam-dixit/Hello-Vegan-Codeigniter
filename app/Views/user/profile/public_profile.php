@@ -330,10 +330,10 @@ if(count($friend_request_received_by_me)!=0){
             <div class="proffilr_pb">
             <div class="right_mrnu">
               <ul>
-                <li><a href="<?php echo base_url();?>/user/post_pofile/<?php echo $id;?>"> Post</a></li>
-                <li><a href="<?php echo base_url();?>/user/event_profile/<?php echo $id;?>"> Events</a></li>
-                <li><a href="<?php echo base_url();?>/user/recipes_profile/<?php echo $id;?>"> Recipes</a></li>
-                <li><a href="<?php echo base_url();?>/user/blog_profile/<?php echo $id;?>"> Blog</a></li>
+                <li><a href="/user/dashboard"> Post</a></li>
+                <li><a href="/user/event"> Events</a></li>
+                <li><a href="/user/recipe"> Recipes</a></li>
+                <li><a href="/user/blog"> Blog</a></li>
               </ul>
             </div>
           </div>
